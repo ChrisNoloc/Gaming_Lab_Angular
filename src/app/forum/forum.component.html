@@ -1,10 +1,15 @@
-<h1 class="titre-page">
+<h1 class="titre-forum">
   Le forum
 </h1>
 
 <div class="wrapper">
   <div class="sidebar">
-      <a class="categorie" href="#">Les jeux les plus joués</a>
+      <a class="categorie" href="#">Les sujets les plus tendances</a>
+      <a class="categorie" href="#">Présentations</a>
+      <a class="categorie" href="#">Actualités</a>
+      <a class="categorie" href="#">Tutoriels</a>
+      <a class="categorie" href="#">Aide</a>
+
       <!-- <a class="categorie" *ngFor="let categorieJeu of categoriesJeu" href="jeux/categorie/{{categorieJeu.idCategorieJeu}}">{{categorieJeu.libelle}}</a>-->
   </div>
   
@@ -12,13 +17,17 @@
     <div class="sujet" *ngFor="let sujet of sujetsForum">
         <div class="vote">
           <i class="fas fa-angle-up fa-3x"></i>
-          <p>{{sujet.note}}</p>
+          <p class="note">{{sujet.note}}</p>
           <i class="fas fa-angle-down fa-3x"></i>
         </div>
         <div class="infos-sujet">
           <a href=""><p></p></a>
-          <a href="/forum"><h3>{{sujet.libelle}}</h3></a>
-          <p>{{sujet.descriptif}}</p>
+          <a href="/forum/sujet"><h3>{{sujet.libelle}}</h3></a> 
+          <span class="detail-sujet">Posté par ChrisNoloc il y a X temps</span>
+          <p >{{sujet.descriptif}}</p>
+          <a href="" class="nb-commentaire"><i class="far fa-comments"></i> 256 commentaires</a>
+          <a href="" class="btn-share"><i class="fas fa-share"></i> Partager</a>
+          <a href="" class="btn-signaler"><i class="fas fa-exclamation-circle"></i> Signaler</a>
         </div>
     </div>
   </div>
