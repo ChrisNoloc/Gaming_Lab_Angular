@@ -1,0 +1,190 @@
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Oswald:300,400);
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.card img {
+    margin: auto;
+    max-width: 60%;
+}
+
+
+.snip1423 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  position: relative;
+  float: left;
+  margin: 20px 1%;
+  min-width: 230px;
+  max-width: 310px;
+  width: 100%;
+  background: #ffffff;
+  text-align: center;
+  color: #000000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+    z-index: 1;
+}
+.snip1423 * {
+  -webkit-box-sizing: padding-box;
+  box-sizing: padding-box;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.snip1423 img {
+  max-width: 100%;
+  vertical-align: top;
+  position: relative;
+}
+.snip1423 figcaption {
+  padding: 20px 15px;
+}
+.snip1423 h3,
+.snip1423 p {
+  margin: 0;
+}
+.snip1423 h3 {
+  font-size: 1.3em;
+  font-weight: 400;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.snip1423 p {
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+.snip1423 .price {
+  font-weight: 500;
+  font-size: 1.4em;
+  line-height: 48px;
+  letter-spacing: 1px;
+}
+.snip1423 .price s {
+  margin-right: 5px;
+  opacity: 0.5;
+  font-size: 0.9em;
+}
+.snip1423 i {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+  width: 56px;
+  line-height: 56px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 1.6em;
+  border: 4px solid #ffffff;
+}
+.snip1423 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.snip1423:hover,
+.snip1423.hover {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+.snip1423:hover i,
+.snip1423.hover i {
+  background-color: #fed136;
+}
+
+    /* ----------------- DROPDOWN --------------------------- */
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    padding: 15px 16px;
+    color:white;
+    background-color: #fed136;
+    font-family: 'Oswald', Arial, sans-serif;
+    margin: 0;
+}
+
+.tri{
+    font-family: 'Oswald', Arial, sans-serif;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    
+    font-family: 'Oswald', Arial, sans-serif;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+/* ----------------------------- SIDEBAR ------------------------------*/
+
+.sidenav {
+    width: 130px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+    margin-top: 60px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.sidenav a {
+    padding: 6px 16px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #2196F3;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #064579;
+}
+
+.listeProduits {
+    margin-left: 140px;
+}
+
+/*.categorie {
+    margin-left: 160px;
+}*/
+
+.haut-de-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+  }

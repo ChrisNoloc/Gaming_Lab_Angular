@@ -1,0 +1,500 @@
+
+a:hover {
+    color: #fec503;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.text-primary {
+    color: #fed136 !important;
+}
+
+section {
+    padding: 50px 0;
+}
+
+section h2.titreSection {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+section h2.titreContact {
+    color: white;
+}
+
+.conceptSite{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.conceptJeux, .conceptBoutique, .conceptForum{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 350px;
+    font-family: 'Oswald', sans-serif;
+
+}
+
+section h3.sousTitreSection {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 60px;
+    text-transform: none;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 50px 0;
+    }
+}
+
+.btnPremiereSection {
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 20px 40px;
+    background-color: #fed136;
+    border-color: #fed136;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: all .5s;
+}
+
+.btnPremiereSection:active,
+.btnPremiereSection:focus,
+.btnPremiereSection:hover {
+    background-color: #fec810 !important;
+    border-color: #fec810 !important;
+    color: white;
+}
+
+.btnAccueil {
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.btnAccueil-xl {
+    font-size: 18px;
+    padding: 20px 40px;
+}
+
+.btnAccueil-primary {
+    background-color: #fed136;
+    border-color: #fed136;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: all .5s;
+}
+
+.btnAccueil-primary:active,
+.btnAccueil-primary:focus,
+.btnAccueil-primary:hover {
+    background-color: #fec810 !important;
+    border-color: #fec810 !important;
+    color: white;
+}
+
+
+.btnAccueil-primary:active,
+.btnAccueil-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
+}
+
+::-moz-selection {
+    background: #fed136;
+    text-shadow: none;
+}
+
+::selection {
+    background: #fed136;
+    text-shadow: none;
+}
+
+img::selection {
+    background: transparent;
+}
+
+img::-moz-selection {
+    background: transparent;
+}
+
+#menuAccueil {
+    background-color: #212529;
+}
+
+#menuAccueil .navbar-toggler {
+    font-size: 12px;
+    right: 0;
+    padding: 13px;
+    text-transform: uppercase;
+    color: white;
+    border: 0;
+    background-color: #fed136;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#menuAccueil .logoAccueil {
+    color: #fed136;
+    font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+    text-decoration: none;
+}
+
+#menuAccueil .logoAccueil.active,
+#mainNav .logoAccueil:active,
+#menuAccueil .logoAccueil:focus,
+#menuAccueil .logoAccueil:hover {
+    color: #fec503;
+}
+
+#menuAccueil .navbar-nav .itemMenu .lienMenu {
+    font-size: 90%;
+    font-weight: 400;
+    padding: 0.75em 0;
+    letter-spacing: 1px;
+    color: white;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#menuAccueil .navbar-nav .itemMenu .lienMenu.active,
+#menuAccueil .navbar-nav .itemMenu .lienMenu:hover {
+    color: #fed136;
+}
+
+@media (min-width: 992px) {
+    #menuAccueil {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+        -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
+        transition: padding-top 0.3s, padding-bottom 0.3s;
+        border: none;
+        background-color: transparent;
+    }
+    #menuAccueil .logoAccueil {
+        font-size: 1.75em;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    #menuAccueil .navbar-nav .itemMenu .lienMenu {
+        padding: 1.1em 1em !important;
+    }
+    #menuAccueil.navbar-shrink {
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: #212529;
+    }
+    #menuAccueil.navbar-shrink .logoAccueil {
+        font-size: 1.25em;
+        padding: 12px 0;
+    }
+}
+
+header.premiereSection {
+    text-align: center;
+    color: white;
+    background-image: url('../../../assets/img/accueil.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+
+header.premiereSection .introPremiereSection {
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+header.premiereSection .introPremiereSection .phraseAccroche {
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 50px;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 768px) {
+    header.premiereSection .introPremiereSection {
+        padding-top: 300px;
+        padding-bottom: 200px;
+    }
+    header.premiereSection .introPremiereSection .intro-lead-in {
+        font-size: 40px;
+        font-style: italic;
+        line-height: 40px;
+        margin-bottom: 25px;
+        font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    header.premiereSection .introPremiereSection .phraseAccroche {
+        font-size: 100px;
+        font-weight: 700;
+        line-height: 75px;
+        margin-bottom: 200px;
+        font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+}
+
+.titreConcept {
+    margin: 15px 0;
+    text-transform: none;
+    font-weight: 600;
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+.titreNotreConcept{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.concept{
+    box-sizing: border-box;
+}
+
+#sectionJeux .sectionJeux-item {
+    right: 0;
+    margin: 0 0 15px;
+}
+
+#sectionJeux .sectionJeux-item .sectionJeux-link {
+    position: relative;
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#sectionJeux .sectionJeux-item .sectionJeux-link .sectionJeux-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    opacity: 0;
+    background: rgba(254, 209, 54, 0.9);
+}
+
+#sectionJeux .sectionJeux-item .sectionJeux-link .sectionJeux-hover:hover {
+    opacity: 1;
+}
+
+#sectionJeux .sectionJeux-item .sectionJeux-link .sectionJeux-hover .sectionJeux-hover-content {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 20px;
+    margin-top: -12px;
+    text-align: center;
+    color: white;
+}
+
+#sectionJeux .sectionJeux-item .sectionJeux-link .sectionJeux-hover .sectionJeux-hover-content i {
+    margin-top: -12px;
+}
+
+#sectionJeux .sectionJeux-item .sectionJeux-link .sectionJeux-hover .sectionJeux-hover-content h3,
+#sectionJeux .sectionJeux-item .sectionJeux-link .sectionJeux-hover .sectionJeux-hover-content h4 {
+    margin: 0;
+}
+
+#sectionJeux .sectionJeux-item .sectionJeux-caption {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 25px;
+    text-align: center;
+    background-color: #fff;
+}
+
+#sectionJeux .sectionJeux-item .sectionJeux-caption h4 {
+    margin: 0;
+    text-transform: none;
+}
+
+#sectionJeux .sectionJeux-item .sectionJeux-caption p {
+    font-size: 16px;
+    font-style: italic;
+    margin: 0;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#sectionJeux * {
+    z-index: 2;
+}
+
+@media (min-width: 767px) {
+    #sectionJeux .sectionJeux-item {
+        margin: 0 0 30px;
+    }
+}
+
+/* ------------------------------ SECTION BOUTIQUE --------------------------------------- */
+
+.carteSectionBoutique {
+    border: solid 1px #fed136;
+}
+
+.titreProduit {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+/* -------------------------------- SECTION CONTACT ------------------------------------- */
+
+section#sectionContact {
+    background-color: #212529;
+    background-image: url("../../../assets/img/map-image.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+section#sectionContact .form-group {
+    margin-bottom: 25px;
+}
+
+section#sectionContact .form-group input,
+section#sectionContact .form-group textarea {
+    padding: 20px;
+}
+
+section#sectionContact .form-group input.form-control {
+    height: auto;
+}
+
+section#sectionContact .form-group textarea.form-control {
+    height: 248px;
+}
+
+section#sectionContact .form-control:focus {
+    border-color: #fed136;
+    box-shadow: none;
+}
+
+section#sectionContact ::-webkit-input-placeholder {
+    font-weight: 700;
+    color: #ced4da;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+section#sectionContact :-moz-placeholder {
+    font-weight: 700;
+    color: #ced4da;
+    /* Firefox 18- */
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+section#sectionContact ::-moz-placeholder {
+    font-weight: 700;
+    color: #ced4da;
+    /* Firefox 19+ */
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+section#sectionContact :-ms-input-placeholder {
+    font-weight: 700;
+    color: #ced4da;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.btnEnvoyerMessage {
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 20px 40px;
+    background-color: #fed136;
+    border-color: #fed136;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: all .5s;
+}
+
+.btnEnvoyerMessage:active,
+.btnEnvoyerMessage:focus,
+.btnEnvoyerMessage:hover {
+    background-color: #fec810 !important;
+    border-color: #fec810 !important;
+    color: white;
+}
+
+
+/* ----------------------------- PARTIE FOOTER ---------------------------------------------- */
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+}
+
+footer span.copyright {
+    font-size: 90%;
+    line-height: 40px;
+    text-transform: none;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+footer ul.quicklinks {
+    font-size: 90%;
+    line-height: 40px;
+    margin-bottom: 0;
+    text-transform: none;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+ul.social-buttons {
+    margin-bottom: 0;
+}
+
+ul.social-buttons li a {
+    font-size: 20px;
+    line-height: 40px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    color: white;
+    border-radius: 100%;
+    outline: none;
+    background-color: #212529;
+}
+
+ul.social-buttons li a:active,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:hover {
+    background-color: #fed136;
+}
+
+.phraseAccroche {
+    font-size: 100px;
+}

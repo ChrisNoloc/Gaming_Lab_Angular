@@ -1,0 +1,51 @@
+<div id="ajoutJeu">
+    <h1 class="titreAjout">Ajouter un nouveau jeu</h1>
+    <div class="importHTML">
+        <h2>Importez votre jeu</h2>
+        <div class="file-drop-area">
+          <span class="fake-btn">Choisissez votre dossier</span>
+          <span *ngIf="!fichierPresent" class="file-msg js-set-number">ou glissez et déposez votre dossier ici</span>
+          <span *ngIf="fichierPresent" class="file-msg js-set-number">{{selectedFiles.item(0).name}}</span>
+          <input class="file-input" type="file" multiple (change)="selectFile($event)">
+        </div>
+    </div>
+    <div class="importImage">
+        <h2>Choisissez une image pour illustrer votre jeu</h2>
+        <div class="file-drop-area">
+          <span class="fake-btn">Choisissez votre image</span>
+          <span *ngIf="!imagePresente" class="file-msg js-set-number">ou glissez et déposez votre image ici</span>
+          <span *ngIf="imagePresente" class="file-msg js-set-number">{{imageFiles.item(0).name}}</span>
+          <input class="file-input" type="file" multiple (change)="selectImage($event)">
+        </div>
+    </div>
+    <div class="titreJeu">
+        <h2>Nom de votre jeu</h2>
+        <textarea rows="1" [(ngModel)]="jeu.libelle"></textarea>
+    </div>
+  
+    <div class="categorieJeu">
+        <h2>Catégorie de votre jeu</h2>
+          <div class="dropdownMenu">
+            <span class="custom-dropdown custom-dropdown--white">
+             <select class="custom-dropdown__select custom-dropdown__select--white" [(ngModel)]="categorieSelected">
+              <option *ngFor="let cat of categoriesJeu" [ngValue]="cat">{{cat.libelle}}</option>
+             </select>
+           </span>
+          </div>
+    </div>
+    <div class="descriptionJeu">
+        <h2>Description de votre jeu</h2>
+        <textarea rows="6" [(ngModel)]="jeu.description"></textarea>
+    </div>
+    <div class="boutonsAjout">
+        <button class="btn-ajout">Annuler</button>
+        <button class="btn-ajout" [disabled]="!selectedFiles" (click)="upload()">Valider</button>
+    </div>
+    <div class="boutonsAjout">
+    <div class="progress" *ngIf="currentFileUpload">
+        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+          aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+          {{progress.percentage}}%</div>
+    </div>
+  </div>
+  </div>

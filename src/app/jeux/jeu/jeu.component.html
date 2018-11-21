@@ -1,0 +1,58 @@
+<div >
+    
+    <div class="header-page">
+        <img class="image-jeu" src="http://localhost:8181/{{jeu.imageJeu}}">
+        <h1 class="titre-jeu" *ngIf="jeu">{{jeu.libelle}}</h1>
+    </div>
+    
+    <div id="header-jeu" *ngIf="jeu">  
+        <span class="infos-jeu">Posté par <a href="">{{jeu.joueur.pseudo}}</a></span>
+        <span class="infos-jeu">Le {{jeu.dateAjout | date:"dd/MM/yyyy"}}</span>
+        <span class="infos-jeu">Joué {{jeu.nbPartie}} fois</span>
+    </div>
+    
+    
+    <div class="espaceCommentaires">
+        <h3>Description</h3>
+        <div class="description">{{jeu.description}}</div>
+        
+        <h3>Commentaires</h3>
+        <div class="comments">
+            <div class="ajoutCommentaire" *ngIf="joueurCo">
+                <div class="comment-wrap">
+                    <div class="photo">
+                        <img class="avatar" src="../../../assets/profil/img/imgJoueur{{joueurCo.idUtilisateur}}.png">
+                    </div>
+                    <div class="comBtn">
+                        <form (ngSubmit)="ajouterCommentaireJeu()" name="form">
+                            <div class="comment-block">
+                                <textarea name="contenu" id="" cols="30" rows="3" placeholder="Laissez un commentaire, un avis ou un conseil pour le développeur de ce jeu" [(ngModel)]="commentaireJoueurCo.contenu"></textarea>
+                            </div>
+                            <button type="button" class="btnEnvoi">Envoyer</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="commentaireMembre">
+                <div class="comment-wrap" *ngFor="let commentaireJeu of commentairesJeu">
+                    <div class="photo">
+                        <img class="avatar" src="../../../assets/profil/img/imgJoueur{{commentaireJeu.joueur.idUtilisateur}}.png">
+                    </div>
+                    <div class="comment-block">
+                        <p class="comment-text">{{commentaireJeu.contenu}}</p>
+                        <div class="bottom-comment">
+                            <div class="comment-date">{{commentaireJeu.dateEmission | date:"dd/MM/yyyy HH:mm"}}</div>
+                            <ul class="comment-actions">
+                                <li class="reply">Répondre</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <iframe [src]="jouerJeu()" width="900" height="500" scrolling="no"></iframe>
+    <a class="button" [href]="jouerJeu()" target="_blank" ><i class="fas fa-arrows-alt"></i> Plein écran</a>
+</div>

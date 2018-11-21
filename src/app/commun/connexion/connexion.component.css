@@ -1,0 +1,32 @@
+span {
+    font-family: 'Oswald', Arial;
+    color: white;
+}
+
+span:hover {
+    /*background-color: #fed136;*/
+}
+
+input {
+    min-width: 100px;
+    height: 1.8em;
+    padding: 10px;
+}
+
+span, input {
+    margin-left:10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 2px 10px;
+    margin-right: 10px;
+    background: transparent;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    color: #fed136;
+}

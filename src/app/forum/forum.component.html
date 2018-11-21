@@ -1,0 +1,25 @@
+<h1 class="titre-page">
+  Le forum
+</h1>
+
+<div class="wrapper">
+  <div class="sidebar">
+      <a class="categorie" href="#">Les jeux les plus joués</a>
+      <!-- <a class="categorie" *ngFor="let categorieJeu of categoriesJeu" href="jeux/categorie/{{categorieJeu.idCategorieJeu}}">{{categorieJeu.libelle}}</a>-->
+  </div>
+  
+  <div class="list-sujet">
+    <div class="sujet" *ngFor="let sujet of sujetsForum">
+        <div class="vote">
+          <i class="fas fa-angle-up fa-3x"></i>
+          <p>{{sujet.note}}</p>
+          <i class="fas fa-angle-down fa-3x"></i>
+        </div>
+        <div class="infos-sujet">
+          <a href=""><p></p></a>
+          <a href="/forum"><h3>{{sujet.libelle}}</h3></a>
+          <p>{{sujet.descriptif}}</p>
+        </div>
+    </div>
+  </div>
+</div>

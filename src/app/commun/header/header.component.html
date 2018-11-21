@@ -1,0 +1,41 @@
+<header>
+    <div class="nav">
+        <div class="navTab">
+            <a routerLink="/"><img class="logo" src="../../../assets/img/logo2.png" a href=""></a>
+            <a routerLink="/jeux" class="navLink">Jeux</a>
+            <a routerLink="/boutique" class="navLink">Boutique</a>
+            <a routerLink="/forum" class="navLink">Forum</a>
+            <app-recherche></app-recherche>
+        </div>
+
+        <div *ngIf="!joueurCo" class="navTab">
+            <div *ngIf="!connexion">
+                <span class="navLink">Inscription</span>
+                <span class="navLink" (click)="toggle()">Connexion</span>
+            </div>
+            <div *ngIf="connexion">
+                <app-connexion></app-connexion>
+            </div>
+        </div>
+
+        <div *ngIf="commande">
+            <app-panier></app-panier>
+        </div>
+
+        <div *ngIf="joueurCo" class="navTab">
+            <div class="titre navJoueur crediii">
+                <span class="credits-joueur-co">{{joueurCo.credit}}</span>
+                <i class="fa fa-gamepad" style="color: white;"></i>
+            </div>
+            
+            <a [routerLink]="['/tableau-de-bord/', joueurCo.idUtilisateur]" class="titre navJoueur">
+                <!-- PHOTO JOUEUR TODO -->
+                <!-- <span class="photo-joueur-co" [style.backgroundImage]=urlImageJoueur()></span> -->
+                <img class="photo-joueur-co" src="../../../assets/profil/img/imgJoueur{{joueurCo.idUtilisateur}}.png">
+                <span>{{joueurCo.pseudo}}</span>
+            </a>
+        </div>
+    </div>
+</header>
+  
+

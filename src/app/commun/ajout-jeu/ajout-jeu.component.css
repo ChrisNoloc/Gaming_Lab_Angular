@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+#ajoutJeu {
+    color: #333333;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+
+.dropdownMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.importHTML {
+    margin-bottom: 40px;
+}
+
+.importImage {
+    margin-bottom: 40px
+}
+
+.ajoutJeu {
+    margin-left: 50px;
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.file-drop-area {
+    border: 1px dashed #333333;
+    border-radius: 3px;
+    position: relative;
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 26px 20px 30px;
+    transition: 0.2s;
+}
+
+.fake-btn {
+    border: 1px solid #333333;
+    border-radius: 3px;
+    padding: 8px 15px;
+    margin-right: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.file-msg {
+    font-size: small;
+    font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: calc(100% - 130px);
+    vertical-align: middle;
+}
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.file-input:focus {
+    outline: none;
+}
+
+.descriptionJeu {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.titreJeu {
+    text-align: center;
+    margin-bottom: 40px
+}
+
+textarea {
+    font-family: 'Montserrat', sans-serif;
+    resize: none;
+    width: 50%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn-ajout {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333333;
+    width: 200px;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all .3s;
+}
+
+.btnPer{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-ajout:hover {
+    background-color: #fed136;
+}
+
+.boutonsAjout {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.custom-dropdown--large {
+    font-size: 1.5em;
+}
+
+.custom-dropdown--small {
+    font-size: .7em;
+}
+
+.custom-dropdown__select {
+    min-width: 270px;
+    font-size: inherit;
+    /* inherit size from .custom-dropdown */
+    padding: .5em;
+    /* add some space*/
+    margin: 0;
+    /* remove default margins */
+}
+
+.custom-dropdown__select--white {
+    background-color: #fff;
+    color: #444;
+}
+
+@supports (pointer-events: none) and ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none)) {
+
+    .custom-dropdown {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        top: 50%;
+        /*left: 50%;*/
+        font-size: 20px;
+        
+        margin-bottom: 30px;
+    }
+
+    .custom-dropdown__select {
+        padding-right: 2.5em;
+        border-radius: 3px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .custom-dropdown::before,
+    .custom-dropdown::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .custom-dropdown::after {
+        /*  Custom dropdown arrow */
+        content: "\25BC";
+        height: 1em;
+        font-size: .625em;
+        line-height: 1;
+        right: 1.2em;
+        top: 50%;
+        margin-top: -.5em;
+    }
+
+    .custom-dropdown::before {
+        /*  Custom dropdown arrow cover */
+        width: 2em;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .custom-dropdown__select[disabled] {
+        color: rgba(0, 0, 0, .3);
+    }
+
+    .custom-dropdown.custom-dropdown--disabled::after {
+        color: rgba(0, 0, 0, .1);
+    }
+
+    /* White dropdown style */
+    .custom-dropdown--white::before {
+        top: .5em;
+        bottom: .5em;
+        background-color: #fff;
+        border-left: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    .custom-dropdown--white::after {
+        color: rgba(0, 0, 0, .9);
+    }
+
+    /* FF only temp fix */
+    @-moz-document url-prefix() {
+        .custom-dropdown__select {
+            padding-right: .9em
+        }
+        .custom-dropdown--large .custom-dropdown__select {
+            padding-right: 1.3em
+        }
+        .custom-dropdown--small .custom-dropdown__select {
+            padding-right: .5em
+        }
+    }
+}
+
+.categorieJeu {
+    margin-bottom: 20px;
+}

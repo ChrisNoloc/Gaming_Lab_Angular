@@ -1,0 +1,17 @@
+a {
+    background-color: darkgrey;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+a:hover span {
+    text-decoration: underline;
+    color: #fed136;
+}
+
+app-panier {
+    width: 100%;
+}

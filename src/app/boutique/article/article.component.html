@@ -1,0 +1,50 @@
+<div class="haut-de-page">
+  <button class="button" routerLink="/boutique"><i class="fa fa-chevron-left"></i>  Retour sur le catalogue</button>
+  <app-panier></app-panier>
+</div>
+
+<div class="container">
+
+  <!-- Colonne de gauche / Image du produit -->
+  <div class="colonneGauche">
+        <img class="thumb" src="../../../assets/img/{{article.imageArticle}}">
+  </div>
+
+
+  <!-- Colonne droite / Description - Prix etc. -->
+  <div class="colonneDroite">
+
+    
+
+      <!-- Description produit -->
+      <div class="product-description">
+          <span>{{article.categorieArticle.libelle}}</span>
+          <h1>{{article.libelle}}</h1>
+
+          <p>{{article.description}}</p>
+      </div>
+
+      <!-- Radio Button -->
+      <div class="radioButton">
+          <input class="hidden radio-label" type="radio" name="accept-offers" id="yes-button" checked="checked" />
+          <label class="button-label" for="yes-button">
+              <h1>Version numérique</h1>
+          </label>
+          <input class="hidden radio-label" type="radio" name="accept-offers" id="no-button" />
+          <label class="button-label" for="no-button">
+              <h1>Version physique</h1>
+          </label>
+      </div>
+
+      <!-- Product Pricing -->
+      <div class="prixProduit">
+          <span>{{article.prix}}€ ou {{article.credit}} <i class="fa fa-gamepad coin" style="color:#fed136; font-size: 30px;"></i>
+          </span>
+          <div class="number">
+            <button class="minus" (click)="diminuerQte()"><i class="fa fa-minus"></i></button>
+            <input type="text" class="inputQte" [(ngModel)]="quantite"/>
+            <button class="plus" (click)="augmenterQte()"> <i class="fa fa-plus"> </i></button>
+          </div>
+          <a class="cart-btn" (click)="ajouterAuPanier()">Ajouter au panier</a>
+      </div>
+  </div>

@@ -1,0 +1,95 @@
+<div id="profil" *ngIf="joueur">
+  
+  <div class="monProfil">
+      <div class="profil">
+          <div class="cover">
+             <img src="../../../assets/img/cover.jpg">
+          </div>
+          <div class="infos">
+              <img src="../../../assets/profil/img/{{joueur.imageJoueur}}">
+              <div class="information">
+                  <span class="pseudo">{{joueur.pseudo}}</span>
+                  <span class="nomPrenom">{{joueur.prenom}} {{joueur.nom}}</span>
+                  <span class="mail"><i class="fa fa-envelope"></i> {{joueur.mail}}</span>
+                  <a routerLink="ajout-jeu" class="button"><i class="fa fa-plus"></i> Poster un jeu</a>
+                  <button (click)="deconnexion()" class="button button-deco">Se deconnecter</button>
+              </div>
+          </div>
+      </div>
+      <div class="onglets">
+              <ul class="tabs" role="tablist">
+                  <li>
+                      <input type="radio" name="tabs" id="tab1" checked />
+                      <label for="tab1" role="tab" aria-selected="false" aria-controls="panel1" tabindex="0">Mes jeux</label>
+                      
+                      <div id="tab-content1" class="tab-content" role="tabpanel" aria-labelledby="jeuxAjout" aria-hidden="true">
+                          <div class="jeuAjout" *ngFor="let je of jeux">
+                              <div class="imageJeu">
+                                  <img src="../../../assets/img/{{je.imageJeu}}" alt="" class="itemImg">
+                              </div>
+                              <h3 class="titreJeu"><b><a [routerLink]="['/jeux/', je.idJeu]">{{je.libelle}}</a></b></h3>
+                              <span class="categorie">{{je.categorieJeu.libelle}}</span>
+                              <br />
+                              <span><b>Nombre de parties jouées par les joueurs :</b> {{je.nbPartie}}</span>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                      <input type="radio" name="tabs" id="tab2" />
+                      <label for="tab2" role="tab" aria-selected="false" aria-controls="panel2" tabindex="0">Mes parties</label>
+                      <div id="tab-content2" class="tab-content" role="tabpanel" aria-labelledby="jeuxJoue" aria-hidden="true">
+                          <div class="jeuJoue" *ngFor="let jj of joueurJeu">
+                              <div class="imageJeu">
+                                  <img src="../../../assets/img/{{jj.jeu.imageJeu}}" alt="" class="itemImg">
+                              </div>
+                              <div class="lastGame">
+                              <span>Dernière partie : {{jj.dateJouer | date:"dd/MM/yyyy"}}</span>
+                              </div>
+                              <h3 class="titreJeu"><b><a [routerLink]="['/jeux/', jj.jeu.idJeu]">{{jj.jeu.libelle}}</a></b></h3>
+                              <span class="categorie">{{jj.jeu.categorieJeu.libelle}}</span>
+                              <br />
+                              <span><b>Nombre de parties jouées :</b> {{jj.score}}</span>
+                              <br />             
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                      <input type="radio" name="tabs" id="tab3" />
+                      <label for="tab3" role="tab" aria-selected="true" aria-controls="panel3" tabindex="0">Mes commandes</label>
+                      <div id="tab-content3" class="tab-content" role="tabpanel" aria-labelledby="description" aria-hidden="false" *ngIf="commande">
+                          <div class="commande" *ngFor="let cmd of commande">
+                              <div class="infoCommande">
+                                  <div class="numeroCommande">Commande n°{{cmd.idCommande}}</div><div class="etatCommande"><p class="tailleEtat"><b>{{cmd.etatCommande.libelle}}</b></p></div>
+                                  <div class="dateCommande"><b>Commandée le :</b> {{cmd.dateEnregistrement | date:"dd/MM/yyyy"}}</div>
+                                  <div class="adresseLivraison" *ngIf="cmd.adresse"><b>Adresse de livraison :</b> {{cmd.adresse.numero}} {{cmd.adresse.voie}}, {{cmd.adresse.villeCodePostal.ville.nomVille}}, {{cmd.adresse.villeCodePostal.codePostal.codePostal}}</div>
+                                  
+                                  <div class="prixTotal">
+                                    <b>TOTAL :</b> 
+
+                                    <div *ngIf="cmd.aPayeCredit">{{cmd.creditTotal}} <i class="fa fa-gamepad coin" style="color:#fed136; font-size: 20px;"></i></div>
+                                        
+                                    <div *ngIf="!cmd.aPayeCredit">{{cmd.prixTotal}} €</div>
+                                    
+                                  </div>
+                                 
+                              </div>
+                              <div class="commandeSection" *ngFor="let lgn of cmd.lignesCommande">
+                                  <div class="ligneCommande">
+                                    <!-- Mettre image Article -->
+                                    <div class="imageArticle" *ngIf="lgn.article.imageArticle">
+                                        <img src="../../../assets/img/{{lgn.article.imageArticle}}" alt="" class="itemImg">
+                                    </div>
+                                    <h3><b>{{lgn.article.libelle}}</b></h3>
+                                    <div class="qte">
+                                      <p>Quantité : {{lgn.quantite}}</p>
+                                    </div>
+                                  </div>
+                              </div>
+                              <hr>
+                          </div>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+  </div>
+</div>

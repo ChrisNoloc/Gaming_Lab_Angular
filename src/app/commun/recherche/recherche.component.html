@@ -1,0 +1,24 @@
+<div id="navSearch">
+  <input id="searchInput" type="text" placeholder="Recherche"
+  [(ngModel)] = "searchValue"
+    (keyup)="motsCles.next($event.target.value)"/>
+
+  <div *ngIf="resultats" class="navResults">
+    <ul *ngIf="resultatsJeu" id="searchResults">
+      <li *ngFor="let resultatJeu of resultatsJeu">Jeu : <a href="jeux/{{resultatJeu.idJeu}}">{{resultatJeu.libelle}}</a></li>
+    </ul>
+
+    <ul *ngIf="resultatsJoueur">
+      <li *ngFor="let resultatJoueur of resultatsJoueur">Joueur: {{resultatJoueur.pseudo}}</li>
+    </ul>
+
+    <ul *ngIf="resultatsSujetForum">
+      <li *ngFor="let resultatSujetForum of resultatsSujetForum">Sujet Forum : {{resultatJoueur.libelle}}</li>
+    </ul>
+
+    <ul *ngIf="resultatsArticle">
+      <li *ngFor="let resultatArticle of resultatsArticle">Article: {{resultatArticle.libelle}}</li>
+    </ul>
+  </div>
+</div>
+

@@ -1,0 +1,30 @@
+
+
+<div class="haut-de-page">
+    <h1 class="titre-page">La boutique</h1>
+    <app-panier></app-panier>
+</div>
+
+
+
+<div class="wrapper">
+    <div class="sidebar">
+        <a class="categorie" routerLink="">Les derniers articles</a>
+        <a class="categorie" *ngFor="let categorieArticle of categoriesArticle" [routerLink]="['categorie/',categorieArticle.idCategorieArticle]">{{categorieArticle.libelle}}</a>
+    </div>
+    
+    <div class="band">
+        <div href="" class="card" *ngFor="let article of articles" [routerLink]="['article/', article.idArticle]">
+            <img class="thumb" src="../../assets/img/{{article.imageArticle}}">
+            <figcaption>
+                <h1 class="titre">{{article.libelle}}</h1>
+                <div class="price">{{article.prix}}€ | {{article.credit}} <i class="fa fa-gamepad"></i></div>
+                
+            </figcaption>
+            <div>
+                <i class="fas fa-shopping-cart fa-2x icone-ajout-panier"></i>
+            </div>
+        </div>
+    </div>
+</div>
+

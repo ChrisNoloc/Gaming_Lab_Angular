@@ -1,0 +1,114 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333;
+}
+
+.nav .navTab {
+    border: none;
+    text-align: left;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .navLink {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1em;
+    line-height: 40px;
+    text-align: center;
+    height: 100%;
+    padding: 10px;
+    cursor: pointer;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+}
+
+.nav a, .nav span {
+    text-decoration: none;
+    color: #fff;
+    transition: .3s background-color;
+}
+
+.nav .navLink:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #fed136;
+}
+
+.nav a.active {
+    background-color: #fed136;
+    color: white;
+    cursor: default;
+}
+
+.credits-joueur-co {
+    color: white;
+}
+
+.credits-joueur-co {
+    margin-right: 10px;
+}
+
+.navJoueur {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.crediii {
+    border-right: 2px solid white;
+}
+
+
+@media screen and (min-width: 400px) {
+    .nav li {
+        width: 120px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+
+    .nav li {
+        display: inline-block;
+        margin-right: -4px;
+    }
+    
+
+}
+
+/* .nav input[type=text] {
+    padding-left: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 150px;
+    border: none;
+    margin-right: 16px;
+    margin-left: 60px;
+    font-size: 17px;
+} */
+
+.inscription{
+    float: right;
+}
+
+.connexion {
+    float: right;
+}
+
+.logo {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.photo-joueur-co {
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

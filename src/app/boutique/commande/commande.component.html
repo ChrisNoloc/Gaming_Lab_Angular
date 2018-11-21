@@ -1,0 +1,47 @@
+<div class="container" *ngIf="joueurCo">
+    <div class="breadcrumb flat">
+        <a routerLink="/boutique/commande" class="active">Panier</a>
+        <a routerLink="/boutique/paiement">Paiement</a>
+        <a href="#">Récapitulatif de commande</a>
+    </div>
+  <div class="header cf">
+      <h1>Mon Panier</h1>
+      <a href="#" class="continue">Continuer le shopping</a>
+  </div>
+  <div class="panier">
+      <ul class="cartWrap" *ngIf="lignesCommande">
+          <li *ngFor="let ligneCommande of lignesCommande" class="items odd">
+              <div class="infoWrap">
+                  <div class="cartSection">
+                      <img src="../../../assets/img/{{ligneCommande.article.imageArticle}}" [alt]="ligneCommande.article.libelle" class="itemImg" />
+                      <h3>{{ligneCommande.article.libelle}}</h3>
+                      <p>Quantité : </p>
+                      <p> <input type="text" class="qty" [value]="ligneCommande.quantite" /></p>
+                      <p class="stockStatus">En Stock</p>
+                  </div>
+
+                  <div class="prodTotal cartSection">
+                      <p>{{ligneCommande.article.prix}}€ ou {{ligneCommande.article.credit}} <i class="fa fa-gamepad coin" style="color:#fed136; font-size: 20px;"></i></p>
+                  </div>
+                  <div class="cartSection removeWrap">
+                      <a href="#" class="remove">x</a>
+                  </div>
+              </div>
+          </li>
+          <!-- Pour alterner en couleurs -->
+
+      </ul>
+  </div>
+
+  <div class="subtotal cf">
+      <ul>
+
+          <li class="totalRow final"><span class="label">Total</span>
+              <span class="value">{{commande.prixTotal}}€</span><br />
+              <span class="valueCoin">ou {{commande.creditTotal}} <i class="fa fa-gamepad coin" style="color:#fed136; font-size: 20px;"></i></span>
+              
+          </li>
+          <li class="totalRow"><a routerLink="/boutique/paiement" (click)="passerCommande()"class="btn continue">Passer commande</a></li>
+      </ul>
+  </div>
+</div>

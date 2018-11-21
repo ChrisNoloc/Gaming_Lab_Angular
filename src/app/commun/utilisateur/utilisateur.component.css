@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+#profil {
+  font-family: "Montserrat", sans-serif;
+}
+
+.numeroCommande, .dateCommande, .adresseLivraison, .prixTotal {
+  font-size: 15px;
+}
+
+.numeroCommande {
+  font-weight: bold;
+}
+
+
+h1 {
+    margin-top: 50px;
+    margin-left: 70px;
+    margin-bottom: -30px;
+}
+
+/* .monProfil {
+    width: 95%;
+    height: 200px;
+    margin: auto;
+} */
+
+.profil {
+  width: 28rem;
+min-height: 38rem;
+margin: 11rem;
+margin-right: 75px;
+margin-top: 6rem;
+margin-top: 0px;
+background: white;
+border-radius: 1rem;
+-webkit-border-radius: 1rem;
+-moz-border-radius: 1rem;
+box-shadow: 0px 1px 5px -1px #000;
+-webkit-box-shadow: 0px 1px 5px -1px #000;
+-moz-box-shadow: 0px 1px 5px -1px #000;
+height: 200px;
+float: left;
+}
+.profil .cover {
+  overflow: hidden;
+  border-top-left-radius: 1rem;
+  -webkit-border-top-left-radius: 1rem;
+  -moz-border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  -webkit-border-top-right-radius: 1rem;
+  -moz-border-top-right-radius: 1rem;
+}
+.profil .cover img {
+  width: 100%;
+}
+.profil .infos {
+  overflow: hidden;
+}
+.profil .infos img {
+  width: 9.25rem;
+height: 9.25rem;
+border-radius: 6.25rem;
+-webkit-border-radius: 6.25rem;
+-moz-border-radius: 6.25rem;
+border: 0.3125rem solid #FFF;
+-webkit-box-shadow: 0px -5px 5px 0px rgba(50, 50, 50, 0.36);
+box-shadow: 0px -5px 5px 0px rgba(50, 50, 50, 0.36);
+position: absolute;
+margin-top: -4.3rem;
+margin-left: 9.2rem;
+}
+.profil .infos .information {
+  margin-top: 4rem;
+    padding: 2rem;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.profil .infos .information span.pseudo {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+}
+.profil .infos .information span .nomPrenom {
+  font-size: 1.1rem;
+}
+.profil .infos .information span.mail {
+  font-size: 1.5rem;
+}
+.profil .infos .information span.nomPrenom, .profil .infos .information span.mail {
+  color: #545454;
+  padding-bottom: 0.3rem;
+  display: block;
+  text-align: center;
+}
+.profil .infos .information p {
+  word-wrap: break-word;
+}
+
+.scroll {
+  animation-name: scroll;
+  -webkit-animation-name: scroll;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+}
+
+p.bio {
+  text-align: center;
+}
+
+/* ------------- ONGLETS --------------------- */
+
+.onglets {
+    margin-left: 28%;
+    height: 200px;
+}
+
+* {
+  padding: 0;
+}
+
+.tabs {
+  width: 950px;
+  float: none;
+  list-style: none;
+  position: relative;
+  margin: 80px 0 0 10px;
+  text-align: left;
+}
+.tabs li {
+  float: left;
+  display: block;
+}
+
+.imageJeu, .imageArticle{
+  max-width: 80px;
+  max-height: 80px;
+}
+
+
+.tabs input[type="radio"] {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+.tabs label {
+  display: block;
+  padding: 14px 21px;
+  border-radius: 2px 2px 0 0;
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  background: #ecf0f1;
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.tabs label:hover {
+  background: #95a5a6;
+}
+.tabs .tab-content {
+  z-index: 2;
+  display: none;
+  overflow: hidden;
+  width: 100%;
+  font-size: 17px;
+  line-height: 25px;
+  padding: 25px;
+  position: absolute;
+  top: 53px;
+  left: 0;
+  background: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tabs [id^="tab"]:checked + label {
+  top: 0;
+  padding-top: 17px;
+  background: #fff;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+  display: block;
+  margin-left: 187px;
+}
+
+.commande {
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.41);
+-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.41);
+box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.41);
+    margin: 10px;
+    padding: 17px;
+    border-radius: 6px;
+}
+
+.infoCommande {
+    background-color: #ecf0f1;
+        padding: 20px;
+}
+
+.produitsCommande {
+    padding: 20px;
+}
+
+.commandeSection{
+    display: inline;    
+    vertical-align: middle;
+}
+
+.itemImg {
+  max-width: 100%;
+  max-height: 100%;
+    display: inline;
+    padding-right: 1em;
+    float: left;
+}
+
+.qte{
+    padding-top: 0px;
+}
+
+.tailleEtat{
+  margin-top: -25px;
+  font-size: 24px;
+}
+
+.ligneCommande{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.etatCommande {
+    float: right;
+
+}
+
+.categorie {
+    font-size: 13px;
+}
+
+.titreJeu {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.jeuAjout {
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.41);
+-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.41);
+box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.41);
+    margin: 10px;
+    padding: 17px;
+    border-radius: 6px;
+}
+
+.lastGame {
+    float: right;
+}
+
+.jeuJoue {
+-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.41);
+-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.41);
+box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.41);
+    margin: 10px;
+    padding: 17px;
+    border-radius: 6px;
+}
+
+.button {
+  padding: 10px 0px;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #5cc479;
+}
+
+.button-deco {
+  background-color: darkgrey;
+  color: white;
+}
+
+.button-deco:hover {
+  background-color: crimson;
+}
+
+.grille-conteneur {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
