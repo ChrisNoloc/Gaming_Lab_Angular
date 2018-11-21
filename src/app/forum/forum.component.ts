@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SujetForum } from '../dot/forum/sujet-forum';
 import { CategorieForum } from '../dot/forum/categorie-forum';
+import { Joueur } from '../dot/utilisateur/joueur';
 
 @Component({
   selector: 'app-forum',
@@ -10,6 +11,10 @@ import { CategorieForum } from '../dot/forum/categorie-forum';
 export class ForumComponent implements OnInit {
 
   sujetsForum : SujetForum[];
+  categoriesForum: CategorieForum[];
+  idCategorieForum: number;
+  sujets: SujetForum[];
+  joueurCo: Joueur;
 
   constructor() { 
     this.sujetsForum = new Array<SujetForum>();
