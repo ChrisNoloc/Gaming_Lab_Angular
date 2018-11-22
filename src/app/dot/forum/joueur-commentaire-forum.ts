@@ -5,5 +5,6 @@ export class JoueurCommentaireForum {
     idJoueurCommentaire: number;
     dateNote: Date;
     joueur: Joueur;
+    vote: number;
     commentaireForum: CommentaireForum;
 }

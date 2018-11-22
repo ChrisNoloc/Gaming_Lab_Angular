@@ -5,6 +5,7 @@ import { ForumRoutingModule } from './forum-routing.module';
 import { ForumComponent } from './forum.component';
 import { ForumService } from './forum.service';
 import { SujetComponent } from './sujet/sujet.component';
+import { VoteSujetComponent } from './vote-sujet/vote-sujet.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { SujetComponent } from './sujet/sujet.component';
   ],
   declarations: [
     ForumComponent, 
-    SujetComponent
+    SujetComponent, 
+    VoteSujetComponent
   ],
   providers: [
     ForumService

@@ -9,8 +9,8 @@
 
 <div class="wrapper">
     <div class="sidebar">
-        <a class="categorie" routerLink="">Les derniers articles</a>
-        <a class="categorie" *ngFor="let categorieArticle of categoriesArticle" [routerLink]="['categorie/',categorieArticle.idCategorieArticle]">{{categorieArticle.libelle}}</a>
+        <a class="categorie" [routerLink]="['/boutique']">Les derniers articles</a>
+        <a class="categorie" *ngFor="let categorieArticle of categoriesArticle" [routerLink]="['/boutique/categorie/',categorieArticle.idCategorieArticle]">{{categorieArticle.libelle}}</a>
     </div>
     
     <div class="band">
