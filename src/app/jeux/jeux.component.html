@@ -7,8 +7,8 @@
 
 <div class="wrapper">
     <div class="sidebar">
-        <a class="categorie" href="jeux">Les jeux les plus joués</a>
-        <a class="categorie" *ngFor="let categorieJeu of categoriesJeu" href="jeux/categorie/{{categorieJeu.idCategorieJeu}}">{{categorieJeu.libelle}}</a>
+        <a class="categorie" [routerLink]="['/jeux']">Les jeux les plus joués</a>
+        <a class="categorie" *ngFor="let categorieJeu of categoriesJeu" [routerLink]="['/jeux/categorie/',categorieJeu.idCategorieJeu]">{{categorieJeu.libelle}}</a>
     </div>
     
     <div class="band">

@@ -11,7 +11,6 @@
         <span class="infos-jeu">Joué {{jeu.nbPartie}} fois</span>
     </div>
     
-    
     <div class="espaceCommentaires">
         <h3>Description</h3>
         <div class="description">{{jeu.description}}</div>
@@ -24,9 +23,9 @@
                         <img class="avatar" src="../../../assets/profil/img/imgJoueur{{joueurCo.idUtilisateur}}.png">
                     </div>
                     <div class="comBtn">
-                        <form (ngSubmit)="ajouterCommentaireJeu()" name="form">
+                        <form #f="ngForm" (ngSubmit)="ajouterCommentaireJeu(f)" name="form">
                             <div class="comment-block">
-                                <textarea name="contenu" id="" cols="30" rows="3" placeholder="Laissez un commentaire, un avis ou un conseil pour le développeur de ce jeu" [(ngModel)]="commentaireJoueurCo.contenu"></textarea>
+                                <textarea name="contenu" cols="30" rows="3" placeholder="Laissez un commentaire, un avis ou un conseil pour le développeur de ce jeu"></textarea>
                             </div>
                             <button type="button" class="btnEnvoi">Envoyer</button>
                         </form>

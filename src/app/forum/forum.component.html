@@ -4,28 +4,28 @@
 
 <div class="wrapper">
   <div class="sidebar">
-      <a class="categorie" href="#">Les sujets les plus tendances</a>
-      <a class="categorie" href="#">Présentations</a>
+      <a class="categorie" [routerLink]="['/forum']">Les sujets les plus tendances</a>
+      <!-- <a class="categorie" href="#">Présentations</a>
       <a class="categorie" href="#">Actualités</a>
       <a class="categorie" href="#">Tutoriels</a>
-      <a class="categorie" href="#">Aide</a>
-
-      <!-- <a class="categorie" *ngFor="let categorieJeu of categoriesJeu" href="jeux/categorie/{{categorieJeu.idCategorieJeu}}">{{categorieJeu.libelle}}</a>-->
+      <a class="categorie" href="#">Aide</a> -->
+      <a class="categorie" *ngFor="let categorieForum of categoriesForum" [routerLink]="['/forum/categorie/',categorieForum.idCategorie]">{{categorieForum.libelle}}</a>
   </div>
   
   <div class="list-sujet">
     <div class="sujet" *ngFor="let sujet of sujetsForum">
-        <div class="vote">
-          <i class="fas fa-angle-up fa-3x"></i>
+        <app-vote-sujet class="vote" [sujet]="sujet"></app-vote-sujet>
+        <!-- <div class="vote">
+              <i class="fas fa-angle-up fa-2x" [ngClass]="{'upvoted' : sujetsUpvoted.includes(sujet)}" (click)="upvote(sujet)"></i>
           <p class="note">{{sujet.note}}</p>
-          <i class="fas fa-angle-down fa-3x"></i>
-        </div>
+          <i class="fas fa-angle-down fa-2x" [ngClass]="{'downvoted' : sujetsDownvoted.includes(sujet)}" (click)="downvote(sujet)"></i>
+        </div> -->
         <div class="infos-sujet">
           <a href=""><p></p></a>
           <a href="/forum/sujet"><h3>{{sujet.libelle}}</h3></a> 
           <span class="detail-sujet">Posté par ChrisNoloc il y a X temps</span>
           <p >{{sujet.descriptif}}</p>
-          <a href="" class="nb-commentaire"><i class="far fa-comments"></i> 256 commentaires</a>
+          <a href="" class="nb-commentaire"><i class="far fa-comments"></i>{{sujet.nombreCommentaire}} commentaires</a>
           <a href="" class="btn-share"><i class="fas fa-share"></i> Partager</a>
           <a href="" class="btn-signaler"><i class="fas fa-exclamation-circle"></i> Signaler</a>
         </div>

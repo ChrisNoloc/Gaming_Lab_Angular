@@ -9,4 +9,5 @@ export class SujetForum {
     note: number;
     categorieForum: CategorieForum;
     joueur: Joueur;
+    nombreCommentaire: number;
 }
