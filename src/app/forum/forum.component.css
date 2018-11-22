@@ -3,24 +3,31 @@
     flex-direction: column;
 }
 
+.titre-sujet {
+    text-decoration: none;
+}
+
 .sujet {
-    padding: 20px;
-    padding-top: 0;
-    padding-left: 30px;
+    margin: 0 80px 0 80px;
+    /* padding-top: 0;
+    padding-left: 30px; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-top: 1px solid #ddd;
 }
 
 .vote {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    margin: 0 5px 20px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .infos-sujet {
-    padding-left: 20px;
+    padding: 5px 50px 0 30px;
     text-align: justify;
 }
 
@@ -41,6 +48,8 @@
 
 .detail-sujet {
     font-style: italic;
+    font-size: 14px;
+    color: #636e72;
 }
 
 .nb-commentaire {
