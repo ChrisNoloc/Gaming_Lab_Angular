@@ -26,24 +26,22 @@ export class ReponseCommentaireComponent implements OnInit {
 
   repondreCommentaire() {
     if (this.nouveauCommentaire.contenu) {
-      
+      this.nouveauCommentaire.commentaireSup= this.commentaireParent;
+      this.nouveauCommentaire.dateEmission = new Date();
+      this.nouveauCommentaire.joueur = this.joueurCo;
+      this.nouveauCommentaire.note = 0;
+      this.nouveauCommentaire.sujetForum = this.commentaireParent.sujetForum;
+      this.forumService.ajouterCommentaire(this.nouveauCommentaire).subscribe(data => this.nouveauCommentaire = data);
+  
+      let nouveauJoueurCommentaireForum = new JoueurCommentaireForum();
+      nouveauJoueurCommentaireForum.joueur = this.joueurCo;
+      nouveauJoueurCommentaireForum.commentaireForum = this.nouveauCommentaire;
+      nouveauJoueurCommentaireForum.dateNote = new Date();
+      nouveauJoueurCommentaireForum.vote = 1;
+      this.forumService.insertJoueurCommentaireForum(nouveauJoueurCommentaireForum).subscribe(data => nouveauJoueurCommentaireForum = data);
+  
+      this.nouveauCommentaire = new CommentaireForum();
+      this.repondu.emit(true);
     }
-    this.nouveauCommentaire.commentaireSup= this.commentaireParent;
-    this.nouveauCommentaire.dateEmission = new Date();
-    this.nouveauCommentaire.joueur = this.joueurCo;
-    this.nouveauCommentaire.note = 0;
-    this.nouveauCommentaire.sujetForum = this.commentaireParent.sujetForum;
-    this.forumService.ajouterCommentaire(this.nouveauCommentaire).subscribe(data => this.nouveauCommentaire = data);
-
-    let nouveauJoueurCommentaireForum = new JoueurCommentaireForum();
-    nouveauJoueurCommentaireForum.joueur = this.joueurCo;
-    nouveauJoueurCommentaireForum.commentaireForum = this.nouveauCommentaire;
-    nouveauJoueurCommentaireForum.dateNote = new Date();
-    nouveauJoueurCommentaireForum.vote = 1;
-    this.forumService.insertJoueurCommentaireForum(nouveauJoueurCommentaireForum).subscribe(data => nouveauJoueurCommentaireForum = data);
-
-    this.nouveauCommentaire = new CommentaireForum();
-    this.repondu.emit(true);
   }
-
 }

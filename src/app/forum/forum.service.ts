@@ -78,8 +78,8 @@ export class ForumService {
     return this._http.post<JoueurSujetForum>(this.urlRestApi + "/joueursujetforum", joueurSujetForum, httpOptions);
   }
 
-  updateJoueurSujetForum(joueurSujetForum : JoueurSujetForum) : Observable<JoueurSujetForum> {
-    return this._http.put<JoueurSujetForum>(this.urlRestApi + "/joueursujetforum", joueurSujetForum, httpOptions);
+  updateJoueurSujetForum(joueurSujetForum : JoueurSujetForum) : void {
+    this._http.put<JoueurSujetForum>(this.urlRestApi + "/joueursujetforum", joueurSujetForum, httpOptions);
   }
 
   getJoueurCommentaireForumByIdJoueurCommentaire(idUtilisateur: number, idCommentaire: number) : Observable<JoueurCommentaireForum> {
@@ -90,8 +90,8 @@ export class ForumService {
     return this._http.post<JoueurCommentaireForum>(this.urlRestApi + "/joueurcommentaireforum", joueurCommentaireForum, httpOptions);
   }
 
-  updateJoueurCommentaireForum(joueurCommentaireForum : JoueurCommentaireForum) : Observable<JoueurCommentaireForum> {
-    return this._http.put<JoueurCommentaireForum>(this.urlRestApi + "/joueurcommentaireforum", joueurCommentaireForum, httpOptions);
+  updateJoueurCommentaireForum(joueurCommentaireForum : JoueurCommentaireForum) : void {
+    this._http.put<JoueurCommentaireForum>(this.urlRestApi + "/joueurcommentaireforum", joueurCommentaireForum, httpOptions);
   }
 
   getAllCommentairesForumParent(idSujet: number) : Observable<CommentaireForum[]> {

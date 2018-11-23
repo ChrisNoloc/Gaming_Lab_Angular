@@ -59,9 +59,7 @@ export class VoteSujetComponent implements OnInit {
       this.joueurSujetForum.dateNote = new Date();
       this.joueurSujetForum.vote = vote;
 
-      this.forumService.updateJoueurSujetForum(this.joueurSujetForum).subscribe(data => {
-        this.joueurSujetForum = data;
-      });
+      this.forumService.updateJoueurSujetForum(this.joueurSujetForum);
     } else {
       //Créer un nouveau joueur sujet forum
       let nouveauJoueurSujetForum = new JoueurSujetForum();

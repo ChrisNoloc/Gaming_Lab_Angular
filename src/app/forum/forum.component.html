@@ -13,7 +13,7 @@
   </div>
   
   <div class="list-sujet">
-    <div class="sujet" *ngFor="let sujet of sujetsForum">
+    <div class="sujet" *ngFor="let sujet of sujets">
         <app-vote-sujet class="vote" [sujet]="sujet"></app-vote-sujet>
         <!-- <div class="vote">
               <i class="fas fa-angle-up fa-2x" [ngClass]="{'upvoted' : sujetsUpvoted.includes(sujet)}" (click)="upvote(sujet)"></i>
@@ -22,7 +22,7 @@
         </div> -->
         <div class="infos-sujet">
           <a href=""><p></p></a>
-          <a href="/forum/sujet"><h3>{{sujet.libelle}}</h3></a> 
+          <a [routerLink]="['/forum/sujet/',sujet.idSujet]"><h3>{{sujet.libelle}}</h3></a> 
           <span class="detail-sujet">Posté par {{sujet.joueur}} le {{sujet.dateCreation | date:"dd/MM/yyyy"}} à {{sujet.dateCreation | date:"H:mm"}}</span>
           <p >{{sujet.descriptif}}</p>
           <a href="" class="nb-commentaire"><i class="far fa-comments"></i>{{sujet.nombreCommentaire}} commentaires</a>

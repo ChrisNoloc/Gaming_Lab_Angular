@@ -56,11 +56,14 @@ export class ForumComponent implements OnInit {
     });
 
     //Ajouter le nombre de commentaires à chaque sujet
-    this.sujets.forEach(sujet => {
-      let listeCommentaire = new Array<CommentaireForum>();
-      this.forumService.getAllCommentaireForumBySujet(sujet.idSujet);
-      sujet.nombreCommentaire = listeCommentaire.length;
-    });
+    if (this.sujets) {
+      this.sujets.forEach(sujet => {
+        let listeCommentaire = new Array<CommentaireForum>();
+        this.forumService.getAllCommentaireForumBySujet(sujet.idSujet);
+        sujet.nombreCommentaire = listeCommentaire.length;
+      });
+    }
+    
 
     //Récupérer tous les JoueurSujetForum lié à l'utilisateur connecté, puis remplir les listes de sujets que l'utilisateur a upvoté et ceux qu'il a downvoté
     // if (this.joueurCo) {
