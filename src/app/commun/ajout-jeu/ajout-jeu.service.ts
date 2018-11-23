@@ -12,7 +12,7 @@ export class AjoutJeuService {
   public pushFileToStorage(file : File): Observable<HttpEvent<{}>>{
     const formdataFile: FormData = new FormData();
     formdataFile.append('file', file);
-    const reqFile = new HttpRequest('POST', 'http://localhost:8181/gaminglab/file', formdataFile, {
+    const reqFile = new HttpRequest('POST', 'http://localhost:8182/gaminglab/file', formdataFile, {
       reportProgress: true,
       responseType: 'text'
     });
@@ -22,7 +22,7 @@ export class AjoutJeuService {
   public pushImageToStorage(image : File): Observable<HttpEvent<{}>>{
     const formdataImage: FormData = new FormData();
     formdataImage.append('image', image);
-    const reqImage = new HttpRequest('POST', 'http://localhost:8181/gaminglab/image', formdataImage, {
+    const reqImage = new HttpRequest('POST', 'http://localhost:8182/gaminglab/image', formdataImage, {
       reportProgress: true,
       responseType: 'text'
     });
@@ -30,23 +30,23 @@ export class AjoutJeuService {
   }
 
   // public importerImageAsset(image: File) {
-  //   this.http.get('http://localhost:8181/gaminglab/file/', image);
+  //   this.http.get('http://localhost:8182/gaminglab/file/', image);
   // }
 
   public postJeu(jeu: Jeu){
-    return this.http.post('http://localhost:8181/gaminglab/game/ajoutJeu', jeu);
+    return this.http.post('http://localhost:8182/gaminglab/game/ajoutJeu', jeu);
   }
 
   public getFiles(): Observable<any>{
-    return this.http.get('http://localhost:8181/gaminglab/file');
+    return this.http.get('http://localhost:8182/gaminglab/file');
   }
 
   public getAllCategorieJeu():Observable<Array<CategorieJeu>>{
-    return this.http.get<Array<CategorieJeu>>("http://localhost:8181/gaminglab/game/categorie");
+    return this.http.get<Array<CategorieJeu>>("http://localhost:8182/gaminglab/game/categorie");
   }
 
   public modifierCreditJoueur(joueur: Joueur):Observable<Joueur>{
-    return this.http.put<Joueur>("http://localhost:8181/gaminglab/user/"+joueur.idUtilisateur,joueur);
+    return this.http.put<Joueur>("http://localhost:8182/gaminglab/user/"+joueur.idUtilisateur,joueur);
   }
 
 }

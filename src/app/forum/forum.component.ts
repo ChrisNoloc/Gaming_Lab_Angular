@@ -15,7 +15,6 @@ import { JoueurSujetForum } from '../dot/forum/joueur-sujet-forum';
 })
 export class ForumComponent implements OnInit {
 
-  sujetsForum : SujetForum[];
   categoriesForum: CategorieForum[];
   idCategorieForum: number;
   sujets: SujetForum[];

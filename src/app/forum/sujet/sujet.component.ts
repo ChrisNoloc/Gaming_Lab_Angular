@@ -16,10 +16,11 @@ export class SujetComponent implements OnInit {
 
   idSujet: number;
   sujet: SujetForum;
-  commentaires: CommentaireForum[];
+  commentairesParent: CommentaireForum[];
   categoriesForum: CategorieForum[];
   //idCategorieForum: number;
   joueurCo: Joueur;
+  repond: Boolean = false;
 
   constructor(
     private forumService : ForumService,
@@ -33,16 +34,17 @@ export class SujetComponent implements OnInit {
         this.idSujet = Number(params['idSujet']);
         this.forumService.getSujetById(this.idSujet).subscribe(data => {
           this.sujet = data;
-          this.forumService.getAllCommentaireForumBySujet(this.idSujet).subscribe(data => {
-            this.commentaires = data;
-          });
+          
+          this.forumService.getAllCommentairesForumParent(this.idSujet).subscribe(data => this.commentairesParent = data);
 
-          this.connexionService.joueurConnecteBS.subscribe(joueur => {
-            this.joueurCo = joueur;
-          });
+          this.connexionService.joueurConnecteBS.subscribe(joueur => this.joueurCo = joueur);
         });
       }
     });
+  }
+
+  toggle() {
+    this.repond = !this.repond;
   }
 
 }

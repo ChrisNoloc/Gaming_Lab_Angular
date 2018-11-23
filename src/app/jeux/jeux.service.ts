@@ -25,7 +25,7 @@ const httpOptions = {
 @Injectable()
 export class JeuxService {
 
-  urlRestApi = "http://localhost:8181/gaminglab/game/";
+  urlRestApi = "http://localhost:8182/gaminglab/game/";
 
   constructor(private _http: HttpClient) { }
 

@@ -18,7 +18,7 @@ const httpOptions = {
 export class ConnexionService {
   public joueurConnecteBS: BehaviorSubject<Joueur>;
 
-  urlRestApi = "http://localhost:8181/gaminglab/";
+  urlRestApi = "http://localhost:8182/gaminglab/";
 
   constructor(private _http: HttpClient) {
     this.joueurConnecteBS=new BehaviorSubject<Joueur>(null);
