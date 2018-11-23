@@ -1,7 +1,7 @@
 <div >
     
     <div class="header-page">
-        <img class="image-jeu" src="http://localhost:8181/{{jeu.imageJeu}}">
+        <img class="image-jeu" src="http://localhost:8182/{{jeu.imageJeu}}">
         <h1 class="titre-jeu" *ngIf="jeu">{{jeu.libelle}}</h1>
     </div>
     
@@ -23,13 +23,15 @@
                         <img class="avatar" src="../../../assets/profil/img/imgJoueur{{joueurCo.idUtilisateur}}.png">
                     </div>
                     <div class="comBtn">
-                        <form #f="ngForm" (ngSubmit)="ajouterCommentaireJeu(f)" name="form">
+                        <form (ngSubmit)="ajouterCommentaireJeu()" name="commentaire">
                             <div class="comment-block">
-                                <textarea name="contenu" cols="30" rows="3" placeholder="Laissez un commentaire, un avis ou un conseil pour le développeur de ce jeu"></textarea>
+                                <textarea cols="30" rows="3" 
+                                placeholder="Laissez un commentaire, un avis ou un conseil pour le développeur de ce jeu"
+                                name="contenu" 
+                                [(ngModel)]="commentaireJoueurCo.contenu"></textarea>
                             </div>
-                            <button type="button" class="btnEnvoi">Envoyer</button>
+                            <button type="submit" class="btnEnvoi">Envoyer</button>
                         </form>
-                        
                     </div>
                 </div>
             </div>

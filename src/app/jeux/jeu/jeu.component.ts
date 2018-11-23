@@ -20,7 +20,6 @@ export class JeuComponent implements OnInit {
   urlJeu: SafeResourceUrl;
   commentairesJeu: CommentaireJeu[];
   joueurCo: Joueur;
-  contenuCommentaire : String; 
   commentaireJoueurCo : CommentaireJeu;
   fullScreen: Boolean = false;
 
@@ -29,13 +28,15 @@ export class JeuComponent implements OnInit {
               private _route: ActivatedRoute,
               private sanitizer: DomSanitizer,
               private connexionService: ConnexionService
-            ) {
+            ) { }
 
+  ngOnInit() { 
     this._route.params.subscribe((params: Params) => {
       if(params["idJeu"] != undefined) {
         this.idJeu = Number(params['idJeu']);
         this.jeuxService.getJeuById(this.idJeu).subscribe(data => {
           this.jeu = data;
+
           this.jeuxService.getAllCommentaireJeuByJeu(this.idJeu).subscribe(data => {
             this.commentairesJeu = data;
           });
@@ -49,31 +50,27 @@ export class JeuComponent implements OnInit {
     });
   }
 
-  ngOnInit() { 
-    this.contenuCommentaire = "";
-  }
-
   jouerJeu() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl("http://localhost:8181/" + this.jeu.lien + "/index.html");
+    return this.sanitizer.bypassSecurityTrustResourceUrl("http://localhost:8182/" + this.jeu.lien + "/index.html");
   }
 
-  ajouterCommentaireJeu(f: NgForm) {
-    this.commentaireJoueurCo.contenu = f.value.contenu;
+  ajouterCommentaireJeu() {
     this.commentaireJoueurCo.dateEmission = new Date();
     this.commentaireJoueurCo.joueur = this.joueurCo;
-    this.commentaireJoueurCo.jeu = this.jeu
+    this.commentaireJoueurCo.jeu = this.jeu;
 
-    this.jeuxService.ajouterCommentaireJeu(this.commentaireJoueurCo).subscribe(data => this.commentaireJoueurCo = data);
-    
-    // this.contenuCommentaire = "";
-    // this.commentaireJoueurCo = new CommentaireJeu();
+    this.jeuxService.ajouterCommentaireJeu(this.commentaireJoueurCo).subscribe(data => {
+      this.commentaireJoueurCo = data;
+
+      this.jeuxService.getAllCommentaireJeuByJeu(this.idJeu).subscribe(data => {
+        this.commentairesJeu = data;
+      });
+    });
 
     // this.jeuxService.getJeuById(this.idJeu).subscribe(data => {
     //   this.jeu = data;
       
-    //   this.jeuxService.getAllCommentaireJeuByJeu(this.idJeu).subscribe(data => {
-    //     this.commentairesJeu = data;
-    //   });
+      
 
     //   this.connexionService.joueurConnecteBS.subscribe(joueur => {
     //     this.joueurCo = joueur;

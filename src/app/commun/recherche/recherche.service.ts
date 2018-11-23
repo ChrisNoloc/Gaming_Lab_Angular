@@ -38,7 +38,7 @@ export class RechercheService {
 
   recherche(motsCles : String) : Observable<Recherche>{
     if (motsCles != '') {
-      return this._http.get<Recherche>('http://localhost:8181/gaminglab/recherche/'+motsCles);
+      return this._http.get<Recherche>('http://localhost:8182/gaminglab/recherche/'+motsCles);
     }
     else {
       return Observable.of(null);

@@ -25,7 +25,7 @@ export class BoutiqueService {
   panierCourant: Commande;
   panierBS: BehaviorSubject<Commande>;
 
-  urlRestApi="http://localhost:8181/gaminglab/boutique/";
+  urlRestApi="http://localhost:8182/gaminglab/boutique/";
 
   constructor(private _http: HttpClient) {
     this.panierCourant = new Commande();
@@ -81,10 +81,10 @@ export class BoutiqueService {
     // NEW
 
     for (let ligneCommande of commande.lignesCommande) {
-     this._http.post<LigneCommande>("http://localhost:8181/gaminglab/panier", JSON.stringify(ligneCommande), httpOptions);
+     this._http.post<LigneCommande>("http://localhost:8182/gaminglab/panier", JSON.stringify(ligneCommande), httpOptions);
     }
 
-    return this._http.post<Commande>("http://localhost:8181/gaminglab/commande", commande, httpOptions)
+    return this._http.post<Commande>("http://localhost:8182/gaminglab/commande", commande, httpOptions)
                       .map(c => { 
                         this.panierBS.next(c);
                         return c; 

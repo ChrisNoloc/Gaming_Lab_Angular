@@ -24,23 +24,23 @@ export class UtilisateurService {
   constructor(private http: HttpClient) { }
 
   public getUtilisateurById(id : number):Observable<Joueur>{
-    return this.http.get<Joueur>("http://localhost:8181/gaminglab/user/"+id);
+    return this.http.get<Joueur>("http://localhost:8182/gaminglab/user/"+id);
   }
 
   public getJoueurBadgeByJoueur(id : number):Observable<JoueurBadge[]>{
-    return this.http.get<JoueurBadge[]>("http://localhost:8181/gaminglab/profil/"+id+"/badge");
+    return this.http.get<JoueurBadge[]>("http://localhost:8182/gaminglab/profil/"+id+"/badge");
     }
 
   public getCommandeByJoueur(id : number):Observable<Commande[]>{
-    return this.http.get<Commande[]>("http://localhost:8181/gaminglab/profil/"+id+"/commande");
+    return this.http.get<Commande[]>("http://localhost:8182/gaminglab/profil/"+id+"/commande");
   }
 
   public getJoueurJeuByJoueur(id: number):Observable<JoueurJeu[]>{
-    return this.http.get<JoueurJeu[]>("http://localhost:8181/gaminglab/profil/"+id+"/jeuJoue");
+    return this.http.get<JoueurJeu[]>("http://localhost:8182/gaminglab/profil/"+id+"/jeuJoue");
   }
 
   public getJeuByJoueur(id: number):Observable<Jeu[]>{
-    return this.http.get<Jeu[]>("http://localhost:8181/gaminglab/profil/"+id+"/jeuAjout");
+    return this.http.get<Jeu[]>("http://localhost:8182/gaminglab/profil/"+id+"/jeuAjout");
   }
 
 }

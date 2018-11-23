@@ -1,0 +1,22 @@
+<div>
+  <app-vote-commentaire [commentaire]="commentaire"></app-vote-commentaire>
+
+  <div class="cmmnt-content">
+    <a href="#" class="userlink">{{commentaire.joueur.pseudo}}</a> - <span class="pubdate">posté le {{commentaire.dateEmission | date:"dd/MM/yyyy"}} à {{commentaire.dateEmission | date:"H:mm"}}</span>
+    <p>{{commentaire.contenu}}</p>
+    <a href="#" class="btn-reply"><i class="fas fa-reply" (click)="toggle()"></i> Répondre</a>
+    <a href="#" class="btn-share"><i class="fas fa-share"></i> Partager</a>
+    <a href="#" class="btn-signaler"><i class="fas fa-exclamation-circle"></i> Signaler</a>
+  </div>
+</div>
+
+<app-reponse-commentaire class="wrap"
+*ngIf="repond && joueurCo" 
+[commentaireParent]="commentaire" [joueurCo]="joueurCo" (repondu)="toggle()"
+></app-reponse-commentaire>
+
+<div class="replies">
+  <app-commentaire class="cmmnt" 
+  *ngFor="let commentaireEnfant of commentairesEnfant" 
+  [commentaire]="commentaireEnfant"></app-commentaire>
+</div>

@@ -14,6 +14,7 @@ import { SujetForum } from '../dot/forum/sujet-forum';
 import { CommentaireForum } from '../dot/forum/commentaire-forum';
 import { Joueur } from '../dot/utilisateur/joueur';
 import { JoueurSujetForum } from '../dot/forum/joueur-sujet-forum';
+import { JoueurCommentaireForum } from '../dot/forum/joueur-commentaire-forum';
 
 const httpOptions = {
   headers : new HttpHeaders({
@@ -65,13 +66,8 @@ export class ForumService {
   //   return this._http.put<SujetForum>(this.urlRestApi + "/sujet/" + idSujetForum + "/"+ idJoueur, sujetForum, httpOptions);
   // }
 
-  noterCommentaire(idSujetForum : number, commentaireForum: CommentaireForum, idJoueur: number) : Observable<CommentaireForum> {
-    return this._http.put<CommentaireForum>(this.urlRestApi + "/commentaire/" + idSujetForum + "/" + idJoueur, commentaireForum, httpOptions);
-  }
-
-  //TODO sur controller web service java
-  // getAllJoueurSujetForumByJoueur (idUtilisateur: number) : Observable<JoueurSujetForum[]> {
-  //   return this._http.get<JoueurSujetForum[]>(this.urlRestApi + "/joueursujetforum/" + idUtilisateur);
+  // noterCommentaire(idSujetForum : number, commentaireForum: CommentaireForum, idJoueur: number) : Observable<CommentaireForum> {
+  //   return this._http.put<CommentaireForum>(this.urlRestApi + "/commentaire/" + idSujetForum + "/" + idJoueur, commentaireForum, httpOptions);
   // }
 
   getJoueurSujetForumByIdJoueurSujet(idUtilisateur: number, idSujet: number) : Observable<JoueurSujetForum> {
@@ -86,5 +82,24 @@ export class ForumService {
     return this._http.put<JoueurSujetForum>(this.urlRestApi + "/joueursujetforum", joueurSujetForum, httpOptions);
   }
 
+  getJoueurCommentaireForumByIdJoueurCommentaire(idUtilisateur: number, idCommentaire: number) : Observable<JoueurCommentaireForum> {
+    return this._http.get<JoueurCommentaireForum>(this.urlRestApi + "/joueurcommentaireforum/" + idUtilisateur + "/" + idCommentaire);
+  }
+
+  insertJoueurCommentaireForum(joueurCommentaireForum : JoueurCommentaireForum) : Observable<JoueurCommentaireForum> {
+    return this._http.post<JoueurCommentaireForum>(this.urlRestApi + "/joueurcommentaireforum", joueurCommentaireForum, httpOptions);
+  }
+
+  updateJoueurCommentaireForum(joueurCommentaireForum : JoueurCommentaireForum) : Observable<JoueurCommentaireForum> {
+    return this._http.put<JoueurCommentaireForum>(this.urlRestApi + "/joueurcommentaireforum", joueurCommentaireForum, httpOptions);
+  }
+
+  getAllCommentairesForumParent(idSujet: number) : Observable<CommentaireForum[]> {
+    return this._http.get<CommentaireForum[]>(this.urlRestApi + "/commentaires_parent/" + idSujet);
+  }
+
+  getAllCommentairesForumEnfant(idCommentaire : number) : Observable<CommentaireForum[]> {
+    return this._http.get<CommentaireForum[]>(this.urlRestApi + "/commentaires_enfant/" + idCommentaire);
+  }
 
 }
