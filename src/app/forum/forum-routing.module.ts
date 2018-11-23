@@ -13,7 +13,7 @@ const routes: Routes = [
     component: ForumComponent
   },
   {
-    path: ':idSujet',
+    path: 'sujet/:idSujet',
     component: SujetComponent
   }
 ];

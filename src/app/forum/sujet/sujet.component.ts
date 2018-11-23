@@ -18,7 +18,6 @@ export class SujetComponent implements OnInit {
   sujet: SujetForum;
   commentairesParent: CommentaireForum[];
   categoriesForum: CategorieForum[];
-  //idCategorieForum: number;
   joueurCo: Joueur;
   repond: Boolean = false;
 
@@ -29,18 +28,22 @@ export class SujetComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.forumService.getAllCategorieForum().subscribe(data => {
+      this.categoriesForum = data;
+    });
+
     this._route.params.subscribe((params: Params) => {
       if(params["idSujet"] != undefined) {
         this.idSujet = Number(params['idSujet']);
         this.forumService.getSujetById(this.idSujet).subscribe(data => {
           this.sujet = data;
-          
-          this.forumService.getAllCommentairesForumParent(this.idSujet).subscribe(data => this.commentairesParent = data);
-
-          this.connexionService.joueurConnecteBS.subscribe(joueur => this.joueurCo = joueur);
         });
       }
     });
+
+    this.forumService.getAllCommentairesForumParent(this.idSujet).subscribe(data => this.commentairesParent = data);
+
+    this.connexionService.joueurConnecteBS.subscribe(joueur => this.joueurCo = joueur);
   }
 
   toggle() {

@@ -10,11 +10,13 @@ import { CommentaireComponent } from './commentaire/commentaire.component';
 import { VoteCommentaireComponent } from './vote-commentaire/vote-commentaire.component';
 import { ReponseSujetComponent } from './reponse-sujet/reponse-sujet.component';
 import { ReponseCommentaireComponent } from './reponse-commentaire/reponse-commentaire.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    ForumRoutingModule
+    ForumRoutingModule,
+    FormsModule
   ],
   declarations: [
     ForumComponent, 

@@ -1,4 +1,4 @@
-<form (ngSubmit)="repondreSujet()">
-   <div class="editor" contenteditable [(ngModel)]="nouveauCommentaire.contenu"></div>
+<form (ngSubmit)="repondreSujet()" name="commentaire">
+   <input type="text" class="editor" [(ngModel)]="nouveauCommentaire.contenu" name="contenu"/>
    <input type="button" value="Envoyer" class="btn-envoyer"/>
 </form>
