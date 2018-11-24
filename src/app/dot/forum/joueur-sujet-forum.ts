@@ -5,6 +5,6 @@ export class JoueurSujetForum {
     idJoueurSujet: number;
     dateNote: Date;
     vote: number;
-    joueur: Joueur;
+    idJoueur: number;
     sujetForum: SujetForum;
 }

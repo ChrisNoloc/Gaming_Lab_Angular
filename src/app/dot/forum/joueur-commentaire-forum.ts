@@ -4,7 +4,7 @@ import { CommentaireForum } from "./commentaire-forum";
 export class JoueurCommentaireForum {
     idJoueurCommentaire: number;
     dateNote: Date;
-    joueur: Joueur;
+    idJoueur: number;
     vote: number;
     commentaireForum: CommentaireForum;
 }

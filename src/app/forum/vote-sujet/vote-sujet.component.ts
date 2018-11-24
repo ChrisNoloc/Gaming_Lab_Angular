@@ -16,7 +16,7 @@ export class VoteSujetComponent implements OnInit {
   @Input() sujet : SujetForum;
 
   joueurSujetForum : JoueurSujetForum;
-  voteUtilisateur : number;
+  voteUtilisateur : number = 0;
   joueurCo: Joueur;
 
   constructor(
@@ -31,7 +31,7 @@ export class VoteSujetComponent implements OnInit {
     });
 
     //Récupérer JoueurSujetForum
-    if (this.joueurCo) {
+    if (this.joueurCo != null) {  
       this.forumService.getJoueurSujetForumByIdJoueurSujet(this.joueurCo.idUtilisateur, this.sujet.idSujet).subscribe(data => {
         this.joueurSujetForum = data;
         this.voteUtilisateur = data.vote;
@@ -40,38 +40,46 @@ export class VoteSujetComponent implements OnInit {
   }
 
   upvote() {
-    if (this.joueurCo) {
+    if (this.joueurCo != null) {
       let vote = this.voteUtilisateur == 1 ? 0 : 1;
       this.commitVote(vote);
     } 
   }
 
   downvote() {
-    if (this.joueurCo) {
+    if (this.joueurCo != null) {
       let vote = this.voteUtilisateur == -1 ? 0 : -1;
       this.commitVote(vote);
     }
   }
 
   commitVote(vote : number) {
-    if (this.joueurSujetForum) {
+
+    this.forumService.getJoueurSujetForumByIdJoueurSujet(this.joueurCo.idUtilisateur, this.sujet.idSujet).subscribe(data => this.joueurSujetForum = data);
+
+    if (this.joueurSujetForum != null) {
       //Mettre à jour le joueur sujet forum
       this.joueurSujetForum.dateNote = new Date();
       this.joueurSujetForum.vote = vote;
 
       this.forumService.updateJoueurSujetForum(this.joueurSujetForum);
-    } else {
+
+      this.forumService.getJoueurSujetForumByIdJoueurSujet(this.joueurCo.idUtilisateur, this.sujet.idSujet).subscribe(data => this.joueurSujetForum = data);
+    } 
+    else {
       //Créer un nouveau joueur sujet forum
       let nouveauJoueurSujetForum = new JoueurSujetForum();
       nouveauJoueurSujetForum.dateNote = new Date();
-      nouveauJoueurSujetForum.joueur = this.joueurCo;
+      nouveauJoueurSujetForum.idJoueur = this.joueurCo.idUtilisateur;
       nouveauJoueurSujetForum.sujetForum = this.sujet;
       nouveauJoueurSujetForum.vote = vote;
 
-      this.forumService.insertJoueurSujetForum(this.joueurSujetForum).subscribe(data => {
+      this.forumService.insertJoueurSujetForum(nouveauJoueurSujetForum).subscribe(data => {
         this.joueurSujetForum = data;
+        this.voteUtilisateur = data.vote;
       });
     }
+    
   }
 
 }

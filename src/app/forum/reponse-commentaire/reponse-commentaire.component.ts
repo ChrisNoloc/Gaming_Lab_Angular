@@ -15,13 +15,14 @@ export class ReponseCommentaireComponent implements OnInit {
   @Input() commentaireParent : CommentaireForum;
   @Input() joueurCo : Joueur;
   @Output() repondu = new EventEmitter<boolean>();
-  nouveauCommentaire = new CommentaireForum(); 
+  nouveauCommentaire : CommentaireForum; 
 
   constructor(
     private forumService : ForumService
   ) { }
 
   ngOnInit() {
+    this.nouveauCommentaire = new CommentaireForum();
   }
 
   repondreCommentaire() {
@@ -34,7 +35,7 @@ export class ReponseCommentaireComponent implements OnInit {
       this.forumService.ajouterCommentaire(this.nouveauCommentaire).subscribe(data => this.nouveauCommentaire = data);
   
       let nouveauJoueurCommentaireForum = new JoueurCommentaireForum();
-      nouveauJoueurCommentaireForum.joueur = this.joueurCo;
+      nouveauJoueurCommentaireForum.idJoueur = this.joueurCo.idUtilisateur;
       nouveauJoueurCommentaireForum.commentaireForum = this.nouveauCommentaire;
       nouveauJoueurCommentaireForum.dateNote = new Date();
       nouveauJoueurCommentaireForum.vote = 1;
