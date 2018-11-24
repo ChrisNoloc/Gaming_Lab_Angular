@@ -56,11 +56,11 @@ export class ForumComponent implements OnInit {
     });
 
     //Ajouter le nombre de commentaires à chaque sujet
-    if (this.sujets) {
+    if (this.sujets != null) {
       this.sujets.forEach(sujet => {
         let listeCommentaire = new Array<CommentaireForum>();
         this.forumService.getAllCommentaireForumBySujet(sujet.idSujet);
-        sujet.nombreCommentaire = listeCommentaire.length;
+        sujet.nombreCommentaires = listeCommentaire.length;
       });
     }
     

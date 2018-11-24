@@ -1,8 +1,8 @@
-<div>
-  <app-vote-commentaire [commentaire]="commentaire"></app-vote-commentaire>
+<div class="fistfucking">
+  <app-vote-commentaire [commentaire]="commentaire" class="vote"></app-vote-commentaire>
 
   <div class="cmmnt-content">
-    <a href="#" class="userlink">{{commentaire.joueur.pseudo}}</a> - <span class="pubdate">posté le {{commentaire.dateEmission | date:"dd/MM/yyyy"}} à {{commentaire.dateEmission | date:"H:mm"}}</span>
+    <a href="#" class="userlink">{{commentaire.joueur}}</a> - <span class="pubdate">posté le {{commentaire.dateEmission | date:"dd/MM/yyyy"}} à {{commentaire.dateEmission | date:"H:mm"}}</span>
     <p>{{commentaire.contenu}}</p>
     <span class="btn-reply"><i class="fas fa-reply" (click)="toggle()"></i> Répondre</span>
     <a href="#" class="btn-share"><i class="fas fa-share"></i> Partager</a>

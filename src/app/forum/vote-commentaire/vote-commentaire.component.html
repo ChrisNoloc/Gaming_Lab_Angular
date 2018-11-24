@@ -1,3 +1,7 @@
-<p>
-  vote-commentaire works!
-</p>
+<span  class="voter" (click)="upvote()" [ngClass]="{'upvoted' : voteUtilisateur > 0}">
+    <i class="fas fa-angle-up fa-2x" ></i>
+</span>
+<p class="note">{{commentaire.note}}</p>
+<span  class="voter" (click)="downvote()" [ngClass]="{'downvoted' : voteUtilisateur < 0}">
+    <i class="fas fa-angle-down fa-2x voter"></i>
+</span>

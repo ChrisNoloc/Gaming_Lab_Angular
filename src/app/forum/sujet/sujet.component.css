@@ -72,6 +72,7 @@ li, ul {
 
 .list-commentaires {
     padding: 0px 50px 20px 50px;
+    width:100%;
 }
 
 .list-commentaires { 
@@ -83,11 +84,13 @@ li, ul {
     position: relative; 
     padding-left: 65px; 
     border-top: 1px solid #ddd; 
+    width:100%;
 }
 .list-commentaires .cmmnt .cmmnt-content { 
     padding: 0px 3px; 
     padding-bottom: 12px; 
     padding-top: 8px; 
+    padding-left: 30px;
 }
 
 .pubdate { 
@@ -112,6 +115,7 @@ li, ul {
     text-decoration: none;
     font-size: 13px;
     color: #333333;
+    cursor: pointer;
 }
 
 .btn-reply:hover {
@@ -256,4 +260,13 @@ body {
  .btn-envoyer:hover {
      background-color: #fed136;
      color: #333333;
+ }
+
+ .titre-sujet {
+    font-family: 'Oswald', 'Montserrat', Arial;
+ }
+
+ .fistfucking {
+     display: flex;
+     flex-direction : row;
  }

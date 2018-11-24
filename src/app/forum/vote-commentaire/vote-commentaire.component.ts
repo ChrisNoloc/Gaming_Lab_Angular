@@ -23,53 +23,69 @@ export class VoteCommentaireComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //Récupérer l'utilisateur connecté
     this.connexionService.joueurConnecteBS.subscribe(joueur => {
       this.joueurCo = joueur;
     });
 
-    //Récupérer JoueurSujetForum
-    if (this.joueurCo) {
-      this.forumService.getJoueurCommentaireForumByIdJoueurCommentaire(this.joueurCo.idUtilisateur, this.commentaire.idCommentaire).subscribe(data => {
-        this.joueurCommentaireForum = data;
-        this.voteUtilisateur = data.vote;
-      });
+    if (this.joueurCo != null) {
+      this.getJoueurCommentaireForum("INIT");
     }
   }
 
   upvote() {
-    if (this.joueurCo) {
+    if (this.joueurCo != null) {
+      this.getJoueurCommentaireForum("UPVOTE");
       let vote = this.voteUtilisateur == 1 ? 0 : 1;
       this.commitVote(vote);
     } 
   }
 
   downvote() {
-    if (this.joueurCo) {
+    if (this.joueurCo != null) {
+      this.getJoueurCommentaireForum("DOWNVOTE");
       let vote = this.voteUtilisateur == -1 ? 0 : -1;
       this.commitVote(vote);
     }
   }
 
+  getJoueurCommentaireForum(qui : String) {
+    console.log(qui);
+    if(this.joueurCo != null) {
+      this.forumService.getJoueurCommentaireForumByIdJoueurCommentaire(this.joueurCo.idUtilisateur, this.commentaire.idCommentaire).subscribe(data => {
+        console.log("DATA : " + data + " par " + qui);
+        if (data != null) {
+          this.joueurCommentaireForum = data;
+          this.voteUtilisateur = data.vote;
+          console.log("getJSF by : " + qui + " avec voteUtilisateur = " + this.voteUtilisateur);
+        }
+      });
+    }
+  }
+
   commitVote(vote : number) {
-    if (this.joueurCommentaireForum) {
-      //Mettre à jour le joueur sujet forum
+
+    if (this.joueurCommentaireForum != null) {
       this.joueurCommentaireForum.dateNote = new Date();
       this.joueurCommentaireForum.vote = vote;
 
-      this.forumService.updateJoueurCommentaireForum(this.joueurCommentaireForum);
+      this.forumService.updateJoueurCommentaireForum(this.joueurCommentaireForum).subscribe(data => {
+        this.joueurCommentaireForum = data;
+        this.voteUtilisateur = data.vote;
+      });
     } else {
-      //Créer un nouveau joueur sujet forum
       let nouveauJoueurCommentaireForum = new JoueurCommentaireForum();
       nouveauJoueurCommentaireForum.dateNote = new Date();
       nouveauJoueurCommentaireForum.idJoueur = this.joueurCo.idUtilisateur;
       nouveauJoueurCommentaireForum.commentaireForum = this.commentaire;
       nouveauJoueurCommentaireForum.vote = vote;
 
-      this.forumService.insertJoueurCommentaireForum(this.joueurCommentaireForum).subscribe(data => {
+      this.forumService.insertJoueurCommentaireForum(nouveauJoueurCommentaireForum).subscribe(data => {
         this.joueurCommentaireForum = data;
+        this.voteUtilisateur = data.vote;
       });
     }
+
+    //this.getJoueurSujetForum("COMMIT");
   }
 
 }
