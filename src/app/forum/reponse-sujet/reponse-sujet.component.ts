@@ -25,7 +25,8 @@ export class ReponseSujetComponent implements OnInit {
     this.nouveauCommentaire = new CommentaireForum();
   }
 
-  repondreCommentaire() {
+  repondreSujet() {
+    if (this.nouveauCommentaire.contenu) {
       this.nouveauCommentaire.dateEmission = new Date();
       this.nouveauCommentaire.joueur = this.joueurCo;
       this.nouveauCommentaire.note = 0;
@@ -33,7 +34,7 @@ export class ReponseSujetComponent implements OnInit {
       this.forumService.ajouterCommentaire(this.nouveauCommentaire).subscribe(data => this.nouveauCommentaire = data);
   
       let nouveauJoueurCommentaireForum = new JoueurCommentaireForum();
-      nouveauJoueurCommentaireForum.joueur = this.joueurCo;
+      nouveauJoueurCommentaireForum.idJoueur = this.joueurCo.idUtilisateur;
       nouveauJoueurCommentaireForum.commentaireForum = this.nouveauCommentaire;
       nouveauJoueurCommentaireForum.dateNote = new Date();
       nouveauJoueurCommentaireForum.vote = 1;
@@ -41,6 +42,6 @@ export class ReponseSujetComponent implements OnInit {
   
       this.nouveauCommentaire = new CommentaireForum();
       this.repondu.emit(true);
-    
+    }
   }
 }

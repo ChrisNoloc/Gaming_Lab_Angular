@@ -62,7 +62,7 @@ export class VoteCommentaireComponent implements OnInit {
       //Créer un nouveau joueur sujet forum
       let nouveauJoueurCommentaireForum = new JoueurCommentaireForum();
       nouveauJoueurCommentaireForum.dateNote = new Date();
-      nouveauJoueurCommentaireForum.joueur = this.joueurCo;
+      nouveauJoueurCommentaireForum.idJoueur = this.joueurCo.idUtilisateur;
       nouveauJoueurCommentaireForum.commentaireForum = this.commentaire;
       nouveauJoueurCommentaireForum.vote = vote;
 
