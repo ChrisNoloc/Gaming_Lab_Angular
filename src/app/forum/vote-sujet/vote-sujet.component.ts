@@ -16,7 +16,7 @@ export class VoteSujetComponent implements OnInit {
   @Input() sujet : SujetForum;
 
   joueurSujetForum : JoueurSujetForum;
-  voteUtilisateur : number = 0;
+  voteUtilisateur : number;
   joueurCo: Joueur;
 
   constructor(
@@ -25,22 +25,18 @@ export class VoteSujetComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //Récupérer l'utilisateur connecté
     this.connexionService.joueurConnecteBS.subscribe(joueur => {
       this.joueurCo = joueur;
     });
 
-    //Récupérer JoueurSujetForum
-    if (this.joueurCo != null) {  
-      this.forumService.getJoueurSujetForumByIdJoueurSujet(this.joueurCo.idUtilisateur, this.sujet.idSujet).subscribe(data => {
-        this.joueurSujetForum = data;
-        this.voteUtilisateur = data.vote;
-      });
+    if (this.joueurCo != null) {
+      this.getJoueurSujetForum("INIT");
     }
   }
 
   upvote() {
     if (this.joueurCo != null) {
+      this.getJoueurSujetForum("UPVOTE");
       let vote = this.voteUtilisateur == 1 ? 0 : 1;
       this.commitVote(vote);
     } 
@@ -48,25 +44,42 @@ export class VoteSujetComponent implements OnInit {
 
   downvote() {
     if (this.joueurCo != null) {
+      this.getJoueurSujetForum("DOWNVOTE");
       let vote = this.voteUtilisateur == -1 ? 0 : -1;
       this.commitVote(vote);
     }
   }
 
-  commitVote(vote : number) {
+  getJoueurSujetForum(qui : String) {
+    console.log(qui);
+    if(this.joueurCo != null) {
+      this.forumService.getJoueurSujetForumByIdJoueurSujet(this.joueurCo.idUtilisateur, this.sujet.idSujet).subscribe(data => {
+        console.log("DATA : " + data + " par " + qui);
+        if (data != null) {
+          this.joueurSujetForum = data;
+          this.voteUtilisateur = data.vote;
+          console.log("getJSF by : " + qui + " avec voteUtilisateur = " + this.voteUtilisateur);
+        }
+      });
+    }
+  }
 
-    this.forumService.getJoueurSujetForumByIdJoueurSujet(this.joueurCo.idUtilisateur, this.sujet.idSujet).subscribe(data => this.joueurSujetForum = data);
+  commitVote(vote : number) {
+    
+    console.log("Vote Utilisateur dans commit " + this.voteUtilisateur + "/ vote = " + vote);
 
     if (this.joueurSujetForum != null) {
+      console.log("Vote du jsf :" + this.joueurSujetForum.vote);
+
       //Mettre à jour le joueur sujet forum
       this.joueurSujetForum.dateNote = new Date();
       this.joueurSujetForum.vote = vote;
 
-      this.forumService.updateJoueurSujetForum(this.joueurSujetForum);
-
-      this.forumService.getJoueurSujetForumByIdJoueurSujet(this.joueurCo.idUtilisateur, this.sujet.idSujet).subscribe(data => this.joueurSujetForum = data);
-    } 
-    else {
+      this.forumService.updateJoueurSujetForum(this.joueurSujetForum).subscribe(data => {
+        this.joueurSujetForum = data;
+        this.voteUtilisateur = data.vote;
+      });
+    } else {
       //Créer un nouveau joueur sujet forum
       let nouveauJoueurSujetForum = new JoueurSujetForum();
       nouveauJoueurSujetForum.dateNote = new Date();
@@ -79,7 +92,10 @@ export class VoteSujetComponent implements OnInit {
         this.voteUtilisateur = data.vote;
       });
     }
-    
+
+    //this.getJoueurSujetForum("COMMIT");
   }
+
+  
 
 }

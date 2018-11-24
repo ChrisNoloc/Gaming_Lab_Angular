@@ -1,6 +1,7 @@
 .list-sujet {
     display: flex;
     flex-direction: column;
+    width:100%;
 }
 
 .titre-sujet {
@@ -29,6 +30,7 @@
 .infos-sujet {
     padding: 5px 50px 0 30px;
     text-align: justify;
+    width: 100%;
 }
 
 .infos-sujet a {

@@ -1,0 +1,13 @@
+/************************* VOTE SUJET / COMMENTAIRE ***************************/
+
+.voter {
+    cursor: pointer;
+ }
+
+ .upvoted {
+     color : #29a329;
+ }
+
+ .downvoted {
+     color : #cc0000;
+ }

@@ -1,0 +1,47 @@
+.fistfucking {
+    display: flex;
+    flex-direction : row;
+}
+
+.btn-reply {
+    text-decoration: none;
+    font-size: 13px;
+    color: #333333;
+    cursor: pointer;
+}
+
+.btn-reply:hover {
+    color: #fed136;
+}
+
+.btn-share {
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 20px;
+    color: #333333;
+}
+
+.btn-share:hover {
+    color: #fed136;
+}
+
+.btn-signaler {
+    text-decoration: none;
+    font-size: 13px;
+    padding-left: 20px;
+    color: #333333;
+}
+
+.btn-signaler:hover {
+    color: #fed136;
+}
+
+.cmmnt-content {
+    padding-left : 20px;
+}
+
+.vote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
