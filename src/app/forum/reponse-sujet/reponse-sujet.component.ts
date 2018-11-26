@@ -31,7 +31,7 @@ export class ReponseSujetComponent implements OnInit {
       this.nouveauCommentaire.joueur = this.joueurCo;
       this.nouveauCommentaire.note = 0;
       this.nouveauCommentaire.sujetForum = this.sujet;
-      this.forumService.ajouterCommentaire(this.nouveauCommentaire).subscribe(data => this.nouveauCommentaire = data);
+      this.forumService.ajouterCommentaire(this.nouveauCommentaire);
   
       let nouveauJoueurCommentaireForum = new JoueurCommentaireForum();
       nouveauJoueurCommentaireForum.idJoueur = this.joueurCo.idUtilisateur;

@@ -54,6 +54,7 @@
     font-size: 13px;
     padding-left: 20px;
     color: #333333;
+    padding-bottom: 20px;
 }
 
 .btn-signaler:hover {
@@ -85,7 +86,9 @@ li, ul {
     padding-left: 65px; 
     border-top: 1px solid #ddd; 
     width:100%;
+    background-color: white;
 }
+
 .list-commentaires .cmmnt .cmmnt-content { 
     padding: 0px 3px; 
     padding-bottom: 12px; 
@@ -135,9 +138,9 @@ body {
     min-width: 562px;
     margin-top: 10px;
     background: #fafafa;
-    border-radius: 2px;
+    /* border-radius: 2px; */
     box-shadow: 0 0 2px 0 rgba(0,0,0,.4);
-    padding: 10px;
+    /*padding: 10px;*/
  }
  
  .toolbar {
@@ -263,10 +266,19 @@ body {
  }
 
  .titre-sujet {
-    font-family: 'Oswald', 'Montserrat', Arial;
+    font-family: 'Montserrat', 'Oswald', Arial;
  }
 
  .fistfucking {
      display: flex;
      flex-direction : row;
+ }
+
+ .contenu {
+     padding: 20px;
+ }
+
+ #sujet {
+     background-color: #ddd;
+     padding: 30px;
  }

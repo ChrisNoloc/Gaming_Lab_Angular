@@ -4,7 +4,7 @@
     (keyup)="motsCles.next($event.target.value)"/>
 
   <div *ngIf="resultats" class="navResults">
-    <ul *ngIf="resultatsJeu" id="searchResults">
+    <ul *ngIf="resultatsJeu">
       <li *ngFor="let resultatJeu of resultatsJeu">Jeu : <a href="jeux/{{resultatJeu.idJeu}}">{{resultatJeu.libelle}}</a></li>
     </ul>
 

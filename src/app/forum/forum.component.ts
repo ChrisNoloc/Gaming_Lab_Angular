@@ -35,6 +35,15 @@ export class ForumComponent implements OnInit {
       this.categoriesForum = data;
     });
 
+    //Récupérer l'utilisateur connecté
+    this.connexionService.joueurConnecteBS.subscribe(joueur => {
+      this.joueurCo = joueur;
+    });
+    
+    this.refresh();
+  }
+
+  refresh() {
     //Récupérer tous les sujets
     this._route.params.subscribe((params: Params) => {
       if (params['idCategorie'] != undefined) {
@@ -49,60 +58,5 @@ export class ForumComponent implements OnInit {
         })
       }
     });
-
-    //Récupérer l'utilisateur connecté
-    this.connexionService.joueurConnecteBS.subscribe(joueur => {
-      this.joueurCo = joueur;
-    });
-
-    //Ajouter le nombre de commentaires à chaque sujet
-    if (this.sujets != null) {
-      this.sujets.forEach(sujet => {
-        let listeCommentaire = new Array<CommentaireForum>();
-        this.forumService.getAllCommentaireForumBySujet(sujet.idSujet);
-        sujet.nombreCommentaires = listeCommentaire.length;
-      });
-    }
-    
-
-    //Récupérer tous les JoueurSujetForum lié à l'utilisateur connecté, puis remplir les listes de sujets que l'utilisateur a upvoté et ceux qu'il a downvoté
-    // if (this.joueurCo) {
-    //   this.sujetsUpvoted = new Array<SujetForum>();
-    //   this.sujetsDownvoted = new Array<SujetForum>();
-
-    //   this.forumService.getAllJoueurSujetForumByJoueur(this.joueurCo.idUtilisateur).subscribe(data => {
-    //     this.votesSujetJoueurCo = data;
-
-    //     this.votesSujetJoueurCo.forEach(jsf => {
-    //       if (jsf.vote > 0) {
-    //         this.sujetsUpvoted.push(jsf.sujetForum);
-    //       } else if (jsf.vote < 0) {
-    //         this.sujetsDownvoted.push(jsf.sujetForum);
-    //       }
-    //     });
-    //   });
-    // }
   }
-
-  // upvote(sujet: SujetForum) : void {
-  //   if (!this.sujetsUpvoted.includes(sujet)) {
-
-  //     this.votesSujetJoueurCo.forEach(jsf => {
-  //       if (jsf.sujetForum == sujet) {
-  //         //On upvote un sujet auquel l'utilisateur a déjà voté
-  //         //Vote = 1
-  //         //Update JoueurSujetForum
-  //         let vote = jsf.vote == 1 ? 0 : 1;
-  //         jsf.vote = vote;
-  //       }
-  //     });
-
-  //     // sujet.note++;
-  //     // this.forumService.noterSujet(sujet.idSujet, sujet, this.joueurCo.idUtilisateur);
-  //   }
-  // }
-
-  // downvote(sujet: SujetForum) : void {
-
-  // }
 }

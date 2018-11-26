@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommentaireForum } from '../../dot/forum/commentaire-forum';
 import { JoueurCommentaireForum } from '../../dot/forum/joueur-commentaire-forum';
 import { Joueur } from '../../dot/utilisateur/joueur';
@@ -13,6 +13,7 @@ import { ConnexionService } from '../../commun/connexion/connexion.service';
 export class VoteCommentaireComponent implements OnInit {
 
   @Input() commentaire : CommentaireForum;
+  @Output() aVote = new EventEmitter<any>();
   joueurCommentaireForum : JoueurCommentaireForum;
   voteUtilisateur : number;
   joueurCo : Joueur; 
@@ -32,6 +33,20 @@ export class VoteCommentaireComponent implements OnInit {
     }
   }
 
+  getJoueurCommentaireForum(qui : String) {
+    console.log(qui);
+    if(this.joueurCo != null) {
+      this.forumService.getJoueurCommentaireForumByIdJoueurCommentaire(this.joueurCo.idUtilisateur, this.commentaire.idCommentaire).subscribe(data => {
+        console.log("DATA : " + data + " par " + qui);
+        if (data != null) {
+          this.joueurCommentaireForum = data;
+          this.voteUtilisateur = data.vote;
+          console.log("getJSF by : " + qui + " avec voteUtilisateur = " + this.voteUtilisateur);
+        }
+      });
+    }
+  }
+
   upvote() {
     if (this.joueurCo != null) {
       this.getJoueurCommentaireForum("UPVOTE");
@@ -48,20 +63,6 @@ export class VoteCommentaireComponent implements OnInit {
     }
   }
 
-  getJoueurCommentaireForum(qui : String) {
-    console.log(qui);
-    if(this.joueurCo != null) {
-      this.forumService.getJoueurCommentaireForumByIdJoueurCommentaire(this.joueurCo.idUtilisateur, this.commentaire.idCommentaire).subscribe(data => {
-        console.log("DATA : " + data + " par " + qui);
-        if (data != null) {
-          this.joueurCommentaireForum = data;
-          this.voteUtilisateur = data.vote;
-          console.log("getJSF by : " + qui + " avec voteUtilisateur = " + this.voteUtilisateur);
-        }
-      });
-    }
-  }
-
   commitVote(vote : number) {
 
     if (this.joueurCommentaireForum != null) {
@@ -71,6 +72,7 @@ export class VoteCommentaireComponent implements OnInit {
       this.forumService.updateJoueurCommentaireForum(this.joueurCommentaireForum).subscribe(data => {
         this.joueurCommentaireForum = data;
         this.voteUtilisateur = data.vote;
+        this.aVote.emit(true);
       });
     } else {
       let nouveauJoueurCommentaireForum = new JoueurCommentaireForum();
@@ -82,6 +84,7 @@ export class VoteCommentaireComponent implements OnInit {
       this.forumService.insertJoueurCommentaireForum(nouveauJoueurCommentaireForum).subscribe(data => {
         this.joueurCommentaireForum = data;
         this.voteUtilisateur = data.vote;
+        this.aVote.emit(true);
       });
     }
 

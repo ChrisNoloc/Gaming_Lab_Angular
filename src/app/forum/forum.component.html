@@ -4,7 +4,7 @@
 
 <div class="wrapper">
   <div class="sidebar">
-      <a class="categorie" [routerLink]="['/forum']">Les sujets les plus tendances</a>
+      <a class="categorie" [routerLink]="['/forum']">Les sujets les plus populaires</a>
       <!-- <a class="categorie" href="#">Présentations</a>
       <a class="categorie" href="#">Actualités</a>
       <a class="categorie" href="#">Tutoriels</a>
@@ -14,18 +14,17 @@
   
   <div class="list-sujet">
     <div class="sujet" *ngFor="let sujet of sujets">
-        <app-vote-sujet class="vote" [sujet]="sujet"></app-vote-sujet>
+        <app-vote-sujet class="vote" [sujet]="sujet" (aVote)="refresh()"></app-vote-sujet>
         <!-- <div class="vote">
               <i class="fas fa-angle-up fa-2x" [ngClass]="{'upvoted' : sujetsUpvoted.includes(sujet)}" (click)="upvote(sujet)"></i>
           <p class="note">{{sujet.note}}</p>
           <i class="fas fa-angle-down fa-2x" [ngClass]="{'downvoted' : sujetsDownvoted.includes(sujet)}" (click)="downvote(sujet)"></i>
         </div> -->
         <div class="infos-sujet">
-          <a href=""><p></p></a>
           <a [routerLink]="['/forum/sujet/',sujet.idSujet]"><h3>{{sujet.libelle}}</h3></a> 
-          <span class="detail-sujet">Posté par {{sujet.joueur}} le {{sujet.dateCreation | date:"dd/MM/yyyy"}} à {{sujet.dateCreation | date:"H:mm"}}</span>
-          <p >{{sujet.descriptif}}</p>
-          <a href="" class="nb-commentaire"><i class="far fa-comments"></i>{{sujet.nombreCommentaire}} commentaires</a>
+          <span class="detail-sujet">Posté par {{sujet.joueur.pseudo}} le {{sujet.dateCreation | date:"dd/MM/yyyy"}} à {{sujet.dateCreation | date:"H:mm"}}</span>
+          <p class="contenu">{{sujet.descriptif}}</p>
+          <a href="" class="nb-commentaire"><i class="far fa-comments"></i> {{sujet.nombreCommentaires}} commentaires</a>
           <a href="" class="btn-share"><i class="fas fa-share"></i> Partager</a>
           <a href="" class="btn-signaler"><i class="fas fa-exclamation-circle"></i> Signaler</a>
         </div>
