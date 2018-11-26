@@ -5,19 +5,31 @@
 
   <div *ngIf="resultats" class="navResults">
     <ul *ngIf="resultatsJeu">
-      <li *ngFor="let resultatJeu of resultatsJeu">Jeu : <a href="jeux/{{resultatJeu.idJeu}}">{{resultatJeu.libelle}}</a></li>
+      <li *ngFor="let resultatJeu of resultatsJeu">
+        <span class="categorie-recherche">Jeu</span>
+        <a class="lien-resultat" [routerLink]="['/jeux/', resultatJeu.idJeu]">{{resultatJeu.libelle}}</a>
+      </li>
     </ul>
 
     <ul *ngIf="resultatsJoueur">
-      <li *ngFor="let resultatJoueur of resultatsJoueur">Joueur: {{resultatJoueur.pseudo}}</li>
+      <li *ngFor="let resultatJoueur of resultatsJoueur">
+        <span class="categorie-recherche">Joueur</span> 
+        <a class="lien-resultat" [routerLink]="['/tableau-de-bord/', resultatJoueur.idUtilisateur]">{{resultatJoueur.pseudo}}</a>
+      </li>
     </ul>
 
     <ul *ngIf="resultatsSujetForum">
-      <li *ngFor="let resultatSujetForum of resultatsSujetForum">Sujet Forum : {{resultatJoueur.libelle}}</li>
+      <li *ngFor="let resultatSujetForum of resultatsSujetForum">
+        <span class="categorie-recherche">Sujet Forum</span> 
+        <a class="lien-resultat" [routerLink]="['/forum/sujet/', resultatSujetForum.idSujet]">{{resultatSujetForum.libelle}}</a>
+      </li>
     </ul>
 
     <ul *ngIf="resultatsArticle">
-      <li *ngFor="let resultatArticle of resultatsArticle">Article: {{resultatArticle.libelle}}</li>
+      <li *ngFor="let resultatArticle of resultatsArticle">
+        <span class="categorie-recherche">Article</span> 
+        <a class="lien-resultat" [routerLink]="['/boutique/article/', resultatArticle.idArticle]">{{resultatArticle.libelle}}</a>
+      </li>
     </ul>
   </div>
 </div>

@@ -32,12 +32,6 @@ export class SujetComponent implements OnInit {
       this.categoriesForum = data;
     });
 
-    this._route.params.subscribe((params: Params) => {
-      if(params["idSujet"] != undefined) {
-        this.idSujet = Number(params['idSujet']);
-      }
-    });
-
     this.connexionService.joueurConnecteBS.subscribe(joueur => this.joueurCo = joueur);
 
     this.refresh();
@@ -48,9 +42,16 @@ export class SujetComponent implements OnInit {
   }
 
   refresh() {
+    this._route.params.subscribe((params: Params) => {
+      if(params["idSujet"] != undefined) {
+        this.idSujet = Number(params['idSujet']);
+      }
+    });
+
     if (this.idSujet != null) {
       this.forumService.getSujetById(this.idSujet).subscribe(data => this.sujet = data);
       this.forumService.getAllCommentairesForumParent(this.idSujet).subscribe(data => this.commentairesParent = data);
+      console.log("SUJET refresh")
     }
     
     this.repond = false;
