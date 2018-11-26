@@ -1,22 +1,24 @@
 <div class="fistfucking">
-  <app-vote-commentaire [commentaire]="commentaire" class="vote"></app-vote-commentaire>
+  <app-vote-commentaire class="vote"
+    [commentaire]="commentaire" (aVote)="refreshParent()">
+  </app-vote-commentaire>
 
   <div class="cmmnt-content">
-    <a href="#" class="userlink">{{commentaire.joueur}}</a> - <span class="pubdate">posté le {{commentaire.dateEmission | date:"dd/MM/yyyy"}} à {{commentaire.dateEmission | date:"H:mm"}}</span>
-    <p>{{commentaire.contenu}}</p>
-    <span class="btn-reply"><i class="fas fa-reply" (click)="toggle()"></i> Répondre</span>
+    <span class="pubdate">Posté par {{commentaire.joueur.pseudo}} le {{commentaire.dateEmission | date:"dd/MM/yyyy"}} à {{commentaire.dateEmission | date:"H:mm"}}</span>
+    <p class="contenu">{{commentaire.contenu}}</p>
+    <span class="btn-reply" (click)="toggle()"><i class="fas fa-reply"></i> Répondre</span>
     <a href="#" class="btn-share"><i class="fas fa-share"></i> Partager</a>
     <a href="#" class="btn-signaler"><i class="fas fa-exclamation-circle"></i> Signaler</a>
+    <app-reponse-commentaire class="wrap"
+      *ngIf="repond" 
+      [commentaireParent]="commentaire" [sujet]="sujet" [joueurCo]="joueurCo" (repondu)="refreshParent()">
+    </app-reponse-commentaire>
   </div>
 </div>
 
-<app-reponse-commentaire class="wrap"
-*ngIf="repond && joueurCo" 
-[commentaireParent]="commentaire" [joueurCo]="joueurCo" (repondu)="toggle()"
-></app-reponse-commentaire>
-
 <div class="replies">
   <app-commentaire class="cmmnt" 
-  *ngFor="let commentaireEnfant of commentairesEnfant" 
-  [commentaire]="commentaireEnfant"></app-commentaire>
+    *ngFor="let commentaireEnfant of commentairesEnfant" 
+    [commentaire]="commentaireEnfant" [sujet]="sujet" (enfantRepondu)="refreshParent()">
+  </app-commentaire>
 </div>

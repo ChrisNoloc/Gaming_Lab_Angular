@@ -7,6 +7,6 @@ export class CommentaireForum {
     dateEmission: Date;
     note: number;
     sujetForum: SujetForum;
-    commentaireSup: CommentaireForum;
+    idCommentaireSup: number;
     joueur: Joueur;
 }

@@ -19,7 +19,7 @@ export class SujetComponent implements OnInit {
   commentairesParent: CommentaireForum[];
   categoriesForum: CategorieForum[];
   joueurCo: Joueur;
-  repond: Boolean = false;
+  repond: Boolean;
 
   constructor(
     private forumService : ForumService,
@@ -35,19 +35,25 @@ export class SujetComponent implements OnInit {
     this._route.params.subscribe((params: Params) => {
       if(params["idSujet"] != undefined) {
         this.idSujet = Number(params['idSujet']);
-        this.forumService.getSujetById(this.idSujet).subscribe(data => {
-          this.sujet = data;
-        });
       }
     });
 
-    this.forumService.getAllCommentairesForumParent(this.idSujet).subscribe(data => this.commentairesParent = data);
-
     this.connexionService.joueurConnecteBS.subscribe(joueur => this.joueurCo = joueur);
+
+    this.refresh();
   }
 
   toggle() {
     this.repond = !this.repond;
+  }
+
+  refresh() {
+    if (this.idSujet != null) {
+      this.forumService.getSujetById(this.idSujet).subscribe(data => this.sujet = data);
+      this.forumService.getAllCommentairesForumParent(this.idSujet).subscribe(data => this.commentairesParent = data);
+    }
+    
+    this.repond = false;
   }
 
 }

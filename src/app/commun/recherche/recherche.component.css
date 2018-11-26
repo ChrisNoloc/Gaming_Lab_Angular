@@ -1,6 +1,6 @@
 #searchInput {
     display: block;
-    max-width: 300px;
+    max-width: 800px;
     padding-left: 10px;
     padding-top: 6px;
     padding-bottom: 6px;
@@ -13,6 +13,15 @@
 
 .navResults li {
     color: white;
+}
+
+#navSearch {
+    
+}
+
+#searchResults {
+    display: block;
+
 }
 
 @media screen and (max-width: 900px) {

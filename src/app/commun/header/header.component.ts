@@ -27,12 +27,12 @@ export class HeaderComponent implements OnInit {
 
   constructor(public connexionService: ConnexionService,
     private sanitizer: DomSanitizer) {
-    this.connexionService.joueurConnecteBS.subscribe(j => {
-        this.joueurCo = j;
-    });
   }
 
   ngOnInit() {
+    this.connexionService.joueurConnecteBS.subscribe(j => {
+      this.joueurCo = j;
+  });
   }
 
   toggle() {

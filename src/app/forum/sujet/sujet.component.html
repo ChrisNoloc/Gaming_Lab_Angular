@@ -1,41 +1,46 @@
-<h1 class="titre-forum">
-  Le forum
-</h1>
-
-<div class="wrapper">
-  <div class="sidebar">
-      <a class="categorie" [routerLink]="['/forum']">Les sujets les plus tendances</a>
-      <!-- <a class="categorie" href="#">Présentations</a>
-      <a class="categorie" href="#">Actualités</a>
-      <a class="categorie" href="#">Tutoriels</a>
-      <a class="categorie" href="#">Aide</a> -->
-      <a class="categorie" *ngFor="let categorieForum of categoriesForum" [routerLink]="['/forum/categorie/',categorieForum.idCategorie]">{{categorieForum.libelle}}</a>
-  </div>
-
-  <div class="list-commentaires">
-    <li class="cmmnt">
-      <div class="fistfucking">
-          <app-vote-sujet [sujet]="sujet"></app-vote-sujet>
-          <div class="cmmnt-content">
-            <p><span class="titre-sujet">{{sujet.libelle}}</span> - <span class="pubdate">{{sujet.categorieForum.libelle}}</span></p>
-            <a href="#" class="userlink">{{sujet.idJoueur}}</a> - <span class="pubdate">posté le {{sujet.dateCreation | date:"dd/MM/yyyy"}} à {{sujet.dateCreation | date:"H:mm"}}</span>
-            <p>{{sujet.descriptif}}</p>
-            <span class="btn-reply"><i class="fas fa-reply" (click)="toggle()"></i> Répondre</span>
-            <a href="" class="btn-share"><i class="fas fa-share"></i> Partager</a>
-            <a href="" class="btn-signaler"><i class="fas fa-exclamation-circle"></i> Signaler</a>
-            <app-reponse-sujet class="wrap" 
-            *ngIf="repond && joueurCo" 
-            [sujet]="sujet" [joueurCo]="joueurCo" (repondu)="toggle()"></app-reponse-sujet>
-          </div>
-      </div>
-      
-      
-      <div class="replies">
-        <app-commentaire class="cmmnt" *ngFor="let commentaireParent of commentairesParent" [commentaire]="commentaireParent"></app-commentaire>
-      </div>
-
-    </li>
-
-  </div>
-
+<div *ngIf="sujet != null">  
+  <div class="wrapper">
+    <div class="sidebar">
+        <a class="categorie" [routerLink]="['/forum']">Les sujets les plus populaires</a>
+        <!-- <a class="categorie" href="#">Présentations</a>
+        <a class="categorie" href="#">Actualités</a>
+        <a class="categorie" href="#">Tutoriels</a>
+        <a class="categorie" href="#">Aide</a> -->
+        <a class="categorie" *ngFor="let categorieForum of categoriesForum" [routerLink]="['/forum/categorie/',categorieForum.idCategorie]">{{categorieForum.libelle}}</a>
+    </div>
+  
+    <div class="list-commentaires">
+      <li class="cmmnt" id="sujet">
+        <div class="fistfucking">
+            <app-vote-sujet [sujet]="sujet" (aVote)="refresh()"></app-vote-sujet>
+            <div class="cmmnt-content">
+              <p class="titre-sujet">{{sujet.categorieForum.libelle}}</p>
+              <h3>{{sujet.libelle}}</h3>
+              <p class="pubdate">
+                Posté par {{sujet.joueur.pseudo}} le {{sujet.dateCreation | date:"dd/MM/yyyy"}} à {{sujet.dateCreation | date:"H:mm"}} | 
+                <span *ngIf="sujet.nombreCommentaires > 0">{{sujet.nombreCommentaires}} commentaires</span>
+                <span *ngIf="sujet.nombreCommentaires == 0">Aucun commentaire</span>
+              </p>
+              <p class="contenu">{{sujet.descriptif}}</p>
+              <span class="btn-reply" (click)="toggle()"><i class="fas fa-reply"></i> Répondre</span>
+              <a href="" class="btn-share"><i class="fas fa-share"></i> Partager</a>
+              <a href="" class="btn-signaler"><i class="fas fa-exclamation-circle"></i> Signaler</a>
+              <app-reponse-commentaire class="wrap" 
+                *ngIf="repond" 
+                [sujet]="sujet" [joueurCo]="joueurCo" (repondu)="refresh()">
+              </app-reponse-commentaire>
+            </div>
+        </div>
+        
+        <div class="replies">
+          <app-commentaire class="cmmnt" 
+          *ngFor="let commentaireParent of commentairesParent" 
+          [commentaire]="commentaireParent" [sujet]="sujet" (enfantRepondu)="refresh()"></app-commentaire>
+        </div>
+  
+      </li>
+  
+    </div>
+  
+  </div>      
 </div>

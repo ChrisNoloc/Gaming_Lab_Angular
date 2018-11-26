@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SujetForum } from '../../dot/forum/sujet-forum';
 import { ConnexionService } from '../../commun/connexion/connexion.service';
 import { ForumService } from '../forum.service';
@@ -14,7 +14,7 @@ import { DatePipe } from '@angular/common';
 export class VoteSujetComponent implements OnInit {
 
   @Input() sujet : SujetForum;
-
+  @Output() aVote = new EventEmitter<any>();
   joueurSujetForum : JoueurSujetForum;
   voteUtilisateur : number;
   joueurCo: Joueur;
@@ -78,6 +78,7 @@ export class VoteSujetComponent implements OnInit {
       this.forumService.updateJoueurSujetForum(this.joueurSujetForum).subscribe(data => {
         this.joueurSujetForum = data;
         this.voteUtilisateur = data.vote;
+        this.aVote.emit(true);
       });
     } else {
       //Créer un nouveau joueur sujet forum
@@ -90,6 +91,7 @@ export class VoteSujetComponent implements OnInit {
       this.forumService.insertJoueurSujetForum(nouveauJoueurSujetForum).subscribe(data => {
         this.joueurSujetForum = data;
         this.voteUtilisateur = data.vote;
+        this.aVote.emit(true);
       });
     }
 

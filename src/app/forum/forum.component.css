@@ -28,7 +28,7 @@
 }
 
 .infos-sujet {
-    padding: 5px 50px 0 30px;
+    padding: 5px 50px 20px 30px;
     text-align: justify;
     width: 100%;
 }
@@ -73,4 +73,8 @@
     text-decoration: none;
     font-size: 13px;
     padding-left: 20px;
+}
+
+.contenu {
+    margin: 20px;
 }
