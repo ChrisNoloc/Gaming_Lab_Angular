@@ -1,12 +1,15 @@
 <div *ngIf="sujet != null">  
   <div class="wrapper">
     <div class="sidebar">
-        <a class="categorie" [routerLink]="['/forum']">Les sujets les plus populaires</a>
+        <a class="categorie" [routerLink]="['/forum']" [ngClass]="{'selected' : idCategorieForum==null}">Les sujets les plus populaires</a>
         <!-- <a class="categorie" href="#">Présentations</a>
         <a class="categorie" href="#">Actualités</a>
         <a class="categorie" href="#">Tutoriels</a>
         <a class="categorie" href="#">Aide</a> -->
-        <a class="categorie" *ngFor="let categorieForum of categoriesForum" [routerLink]="['/forum/categorie/',categorieForum.idCategorie]">{{categorieForum.libelle}}</a>
+        <a class="categorie" *ngFor="let categorieForum of categoriesForum" [routerLink]="['/forum/categorie/',categorieForum.idCategorie]"
+        [ngClass]="{'selected' : categorieForum.idCategorie==idCategorieForum}">
+          {{categorieForum.libelle}}
+        </a>
     </div>
   
     <div class="list-commentaires">

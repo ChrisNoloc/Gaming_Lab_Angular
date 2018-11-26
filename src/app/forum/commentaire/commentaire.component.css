@@ -1,6 +1,7 @@
 .fistfucking {
     display: flex;
     flex-direction : row;
+    margin-top: 10px;
 }
 
 .btn-reply {
@@ -39,7 +40,7 @@
 
 .cmmnt-content {
     padding-left : 20px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
 .vote {
@@ -54,6 +55,7 @@
 
 .pubdate { 
     color: #777; 
+    font-style: italic;
 }
 
 .cmmnt {
@@ -61,5 +63,5 @@
     position: relative; 
     padding-left: 65px; 
     border-top: 1px solid #ddd; 
-    width:100%;
+    max-width: 70em;
 }
