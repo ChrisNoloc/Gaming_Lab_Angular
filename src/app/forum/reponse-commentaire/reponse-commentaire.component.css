@@ -1,8 +1,8 @@
 .editor {
     position: relative;
-    width: 100%;
-    height: 23vh;
-    margin: 0 auto;
+    width: 150%;
+    height: 15vh;
+    margin: 10px auto 0 auto;
     padding: 10px;
     background: #fcfcfc;
     border-radius: 3px;
@@ -11,6 +11,7 @@
     overflow: hidden;
     word-break: break-all;
     outline: none;
+    resize: none;
  }
 
  .btn-envoyer {
@@ -24,7 +25,6 @@
     display: inline-block;
     font-size: 14px;
     position: relative;
-    left: 92%;
  }
 
  .btn-envoyer:hover {

@@ -78,3 +78,8 @@
 .contenu {
     margin: 20px;
 }
+
+.selected {
+    background-color: #fed136;
+    color: white;
+}
